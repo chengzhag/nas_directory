@@ -48,7 +48,7 @@ NAS 共享文件夹包 NAS:/Public：
 
 * [NAS 使用说明](documents/nas/README.md)
 * [服务器使用说明](documents/server/README.md) #TODO
-* [EOS R 相机使用说明](documents/eos_r/README.md) #TODO
+* [EOS R 相机使用说明](documents/eos_r/README.md)
 
 
 ## 贡献
@@ -59,10 +59,10 @@ NAS 共享文件夹包 NAS:/Public：
 * NAS:/Public/datasets 文件夹用于存储公共数据集，只读
 * 管理员和普通用户均通过以下步骤申请公共数据集入库：
     1. 下载数据集到个人 home 文件夹
-    1. 将数据集解压到个人 home 文件夹中，以数据集名称命名，命名应不包含空格，空格以 '_' 替代
-    1. 将 [nas_directory](https://github.com/pidan1231239/nas_directory) 仓库克隆到个人电脑，编辑 datasets/README.md，按格式添加数据集的信息
-    1. 完善 commit 信息并提交 commit
-    1. 向原仓库发起 pull request，交由 managers 进行 merge 并将数据集入库到 NAS:/Public/datasets
+    2. 将数据集解压到个人 home 文件夹中，以数据集名称命名，命名应不包含空格，空格以 '_' 替代
+    3. 将 [nas_directory](https://github.com/pidan1231239/nas_directory) 仓库克隆到个人电脑，编辑 datasets/README.md，按格式添加数据集的信息
+    4. 完善 commit 信息并提交 commit
+    5. 向原仓库发起 pull request，交由 managers 进行 merge 并将数据集入库到 NAS:/Public/datasets
 
 建议和补充：
 * 对 README 和 NAS:/Public/documents 等说明文件有修改建议和补充的：
