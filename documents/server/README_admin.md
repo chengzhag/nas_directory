@@ -25,18 +25,13 @@
         Root DN: cn=admin,dc=kc110lsc,dc=local
         ```
     1. 安装显卡驱动、cuda、cudnn #TODO
-* 用户初始化脚本：用户第一次登陆运行，运行结束后删除初始化脚本
+* 用户初始化脚本：.profile, 用户第一次登陆运行
 	1. 查找初始化脚本
-	1. 询问默认 shell，并设置 etc/shells 中的 shell：[Changing the shell for users on LDAP auth server](https://www.linuxquestions.org/questions/linux-server-73/changing-the-shell-for-users-on-ldap-auth-server-4175501977/)
-        ```
-		SHELL=/bin/bash exec /bin/bash
-        ```
 	1. 更改密码：[Linux 用户和用户组管理](https://www.runoob.com/linux/linux-user-manage.html)
         ```
 		passwd ${USER}
         ```
 	1. 安装 anaconda
         ```
-		bash /media/Public/init/Anaconda3-2019.10-Linux-x86_64.sh
+		bash /media/Public/documents/server/app/Anaconda3-2019.10-Linux-x86_64.sh
         ```
-    1. 删除初始化脚本

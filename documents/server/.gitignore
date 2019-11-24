@@ -2,3 +2,5 @@
 
 !README*.md
 !.gitignore
+!.profile
+!.inituser

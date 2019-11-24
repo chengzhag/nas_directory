@@ -30,11 +30,7 @@ NAS 私有文件夹 NAS:/homes/{user_name}，称为各用户的 home 文件夹�
 * 只有 members 用户组的成员拥有，仅拥有者有读写权限
 * NAS:/homes 挂载到各 GPU:/home 路径下
 
-NAS 共享文件夹包括 NAS:/Public 和 NAS:/temp 文件夹：
-* NAS:/temp 对所有 members 均可读写：
-    * 存储临时文件（如尚未入库的公共数据集）
-    * 定期清理
-    * 挂载到各显卡服务器
+NAS 共享文件夹包 NAS:/Public：
 * NAS:/Public 只读，存储说明文件和公共数据集，其目录结构如下：
     * datasets: 公共数据集，通常是网上发布的，成熟的数据集，维护一个列表方便共享
         * {dataset_name}: 
@@ -61,10 +57,9 @@ NAS 共享文件夹包括 NAS:/Public 和 NAS:/temp 文件夹：
 
 公共数据集：使用公共数据集可以节省 home 文件夹空间
 * NAS:/Public/datasets 文件夹用于存储公共数据集，只读
-* NAS:/temp 文件夹可用于存放未入库的数据集
 * 管理员和普通用户均通过以下步骤申请公共数据集入库：
-    1. 下载数据集到 NAS:/temp 文件夹
-    1. 将数据集解压到 NAS:/temp 中，以数据集名称命名，命名应不包含空格，空格以 '_' 替代
+    1. 下载数据集到个人 home 文件夹
+    1. 将数据集解压到个人 home 文件夹中，以数据集名称命名，命名应不包含空格，空格以 '_' 替代
     1. 将 [nas_directory](https://github.com/pidan1231239/nas_directory) 仓库克隆到个人电脑，编辑 datasets/README.md，按格式添加数据集的信息
     1. 完善 commit 信息并提交 commit
     1. 向原仓库发起 pull request，交由 managers 进行 merge 并将数据集入库到 NAS:/Public/datasets
@@ -74,7 +69,7 @@ NAS 共享文件夹包括 NAS:/Public 和 NAS:/temp 文件夹：
     1. 将 [nas_directory](https://github.com/pidan1231239/nas_directory) 仓库克隆到个人电脑，进行修改和补充
     1. 完善 commit 信息并提交 commit
     1. 向原仓库发起 pull request，交由 managers 进行 merge
-* 注意：pdf 等文件请勿提交到 commit 中，因为文件可能较大且无法追踪更改，应将此类文件暂存到 NAS:/temp 文件夹，并在 pull request 中说明此类文件的增改（说明将新增文件移动到 NAS:/Public 下的哪个文件或覆盖哪个文件）
+* 注意：pdf 等文件请勿提交到 commit 中，因为文件可能较大且无法追踪更改，应将此类文件暂存到个人 home 文件夹文件夹，并在 pull request 中说明此类文件的增改（说明将新增文件移动到 NAS:/Public 下的哪个文件或覆盖哪个文件）
 
 TODO：详细贡献数据集、贡献说明，github 使用说明，GUI git 软件建议，pull request 发起说明
 

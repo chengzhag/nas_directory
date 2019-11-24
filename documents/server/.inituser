@@ -1,0 +1,5 @@
+echo "第一步：更改用户密码"
+passwd
+
+echo "第二步：安装 anaconda"
+bash /media/Public/documents/server/app/Anaconda3-2019.10-Linux-x86_64.sh
