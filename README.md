@@ -14,7 +14,7 @@
         * 将 NAS 文件夹挂载到个人电脑（[NAS 使用说明-访问-挂载](documents/nas/README.md/#访问)）
     * 负责：向 github 仓库发起 pull request，贡献公共数据集和说明（[贡献](#贡献)）
     * 权限：
-        * 对个人文件夹 NAS:/{user_name} 的读写权限，但有容量限制
+        * 对个人文件夹 NAS:/homes/{user_name} 的读写权限，但有容量限制
         * 显卡服务器上所有命令的 sudo 权限（暂定）
 用户：在 NAS 和各显卡服务器上是通用的，administrators 用户组之外的用户密码会在各服务器之间同步，{user_name} 按以下规则命名
 * members: 姓名拼音命名，如 chencai, zhengzinan, zhangcheng
@@ -25,10 +25,10 @@
 
 ## 目录结构
 
-NAS 私有文件夹 NAS:/{user_name}，称为各用户的 home 文件夹：
+NAS 私有文件夹 NAS:/homes/{user_name}，称为各用户的 home 文件夹：
 * 存放个人的代码、数据集、软件等
 * 只有 members 用户组的成员拥有，仅拥有者有读写权限
-* 挂载到各 GPU:/home/{user_name} 路径下
+* NAS:/homes 挂载到各 GPU:/home 路径下
 
 NAS 共享文件夹包括 NAS:/Public 和 NAS:/temp 文件夹：
 * NAS:/temp 对所有 members 均可读写：
