@@ -1,5 +1,8 @@
 #apt update
 
+#安装必备包
+apt -y --force-yes install openssh-server exfat-utils
+
 #安装 nfs 依赖库，挂载 Public、tmp 文件夹，设置开机自动挂载
 apt -y --force-yes install nfs-common
 mkdir /media/Public

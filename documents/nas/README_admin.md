@@ -59,3 +59,35 @@ TODO: * 交换机
 ## 全新安装
 
 [QNAP 线上安装](https://start.qnap.com/cn/?QfinderPro=1)
+
+设置：
+* 系统：
+    * 常规设置：
+        * 服务器名称：kc110lsc
+        * 时间服务器：cn.ntp.org.cn
+    * 存储与快照总管：配置好 Qtier
+    * 硬件：
+        * 警告音：取消勾选“系统程序”
+    * 通知中心：配置好 admin 账户的通知
+* 网络 & 文件服务：
+    * 网络与虚拟交换机：配置好万兆网口的链路聚合，Balance-alb
+    * Win/Max/NFS：开启三种网络文件协议
+* 应用服务：
+    * LDAP 服务器：启用
+        * 完整的域名：kc110lsc.local
+        * 应用并选择微软挂载采用 LDAP 认证
+        * 启用此NAS作为LDAP服务的客户端
+        * 群组：managers, members
+        * 用户：新建各团队成员的账户，设置初始密码和邮箱
+        * 备份 / 恢复：设置备份数据库，备份到 Public/
+* 权限：
+    * 域安全认证：选择 LDAP 认证 - 本机 NAS 上的 LDAP 服务器
+    * 用户：确保“用户家目录”为启用
+    * 用户组：设置 managers, members 用户组的文件夹访问权限
+    * 共享文件夹：确保 Public 和 homes 共享文件夹各权限类别的权限
+    * 磁盘限额：设置每个用户的磁盘配额
+APP Center：
+    * 安装 Download Station
+
+
+
