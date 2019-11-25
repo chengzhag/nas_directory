@@ -4,3 +4,4 @@
 !.gitignore
 !.profile
 !.inituser
+!initserver.sh
