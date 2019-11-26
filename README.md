@@ -16,6 +16,7 @@
     * 权限：
         * 对个人文件夹 NAS:/homes/{user_name} 的读写权限，但有容量限制
         * 显卡服务器上所有命令的 sudo 权限（暂定）
+
 用户：在 NAS 和各显卡服务器上是通用的，administrators 用户组之外的用户密码会在各服务器之间同步，{user_name} 按以下规则命名
 * members: 姓名拼音命名，如 chencai, zhengzinan, zhangcheng
 * managers: 在 members 命名规则的基础上添加 _manager 后缀
@@ -30,18 +31,17 @@ NAS 私有文件夹 NAS:/homes/{user_name}，称为各用户的 home 文件夹�
 * 只有 members 用户组的成员拥有，仅拥有者有读写权限
 * NAS:/homes 挂载到各 GPU:/home 路径下
 
-NAS 共享文件夹包 NAS:/Public：
-* NAS:/Public 只读，存储说明文件和公共数据集，其目录结构如下：
-    * datasets: 公共数据集，通常是网上发布的，成熟的数据集，维护一个列表方便共享
-        * {dataset_name}: 
-            * 以完整原始目录结构（作者发布时的目录结构）保存在 {dataset_name} 文件夹下，每个数据集一个文件夹，目录结构不应有空格
-            * 如果数据集下载为压缩包，需要解压至对应文件夹
-            * 使用时链接到需要使用的目录下 #TODO: 如何链接
-        * README.md: 存放数据集的上传者、链接、分类、hash、大小等信息
-        * 说明：任何人都可以
-    * documents: 存放团队器材、服务器资料和文档
-        * nas: 存放 [NAS 使用说明](documents/nas/README.md)和规范
-    * README.md: 解释目录结构、新手入门
+NAS 共享文件夹 NAS:/Public，只读，存储说明文件和公共数据集：
+* datasets: 公共数据集，通常是网上发布的，成熟的数据集，维护一个列表方便共享
+    * {dataset_name}: 
+        * 以完整原始目录结构（作者发布时的目录结构）保存在 {dataset_name} 文件夹下，每个数据集一个文件夹，目录结构不应有空格
+        * 如果数据集下载为压缩包，需要解压至对应文件夹
+        * 使用时链接到需要使用的目录下 #TODO: 如何链接
+    * README.md: 存放数据集的上传者、链接、分类、hash、大小等信息
+    * 说明：任何人都可以
+* documents: 存放团队器材、服务器资料和文档
+    * nas: 存放 [NAS 使用说明](documents/nas/README.md)和规范
+* README.md: 解释目录结构、新手入门
 
 
 ## 说明

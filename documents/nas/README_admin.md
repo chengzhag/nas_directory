@@ -84,9 +84,9 @@ TODO: * 交换机
     * 域安全认证：选择 LDAP 认证 - 本机 NAS 上的 LDAP 服务器
     * 用户：确保“用户家目录”为启用
     * 用户组：设置 managers, members 用户组的文件夹访问权限
-    * 共享文件夹：确保 Public 和 homes 共享文件夹各权限类别的权限
+    * 共享文件夹：确保 Public 和 homes 共享文件夹各权限类别的权限，其中 NFS 的要设置 NO_ROOT_SQUASH，否则 chown 等命令无法使用
     * 磁盘限额：设置每个用户的磁盘配额
-APP Center：
+* APP Center：
     * 安装 Download Station
 
 

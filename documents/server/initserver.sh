@@ -1,7 +1,8 @@
-#apt update
+apt update
 
 #安装必备包
-apt -y --force-yes install openssh-server exfat-utils
+apt -y --force-yes install openssh-server exfat-utils ethtool net-tools gcc make
+
 
 #安装 nfs 依赖库，挂载 Public、tmp 文件夹，设置开机自动挂载
 apt -y --force-yes install nfs-common
@@ -55,9 +56,17 @@ update-rc.d nslcd enable
 #可以在Host上通过passwd更改用户密码  
 cp /etc/pam.d/common-password /etc/pam.d/common-password.bak  
 sed -i 's/use_authtok//' /etc/pam.d/common-password  
-  
+
 #使配置生效  
 /etc/init.d/nscd restart  
 
 #在交互界面中重新配置 LDAP root 密码
 dpkg-reconfigure ldap-auth-config
+
+
+#安装威联通 USB 网卡 QNA-UC5G1T 驱动
+cd /media/Public/documents/server/app/AQ_USBDongle_LinuxDriver_1.3.3.0/fiji/Linux
+make
+cp aqc111.ko /lib/modules/$(uname -r)/kernel/drivers/net/usb/
+depmod -a
+cd ~
