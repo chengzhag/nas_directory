@@ -2,7 +2,7 @@
 
 
 ## 账号
-admin 账号拥有最高权限，与显卡服务器的 root、admin 账号共用密码。
+admin 账号拥有最高权限，与显卡服务器的 root、admin 账号共用密码。一般 NAS 管理员使用 {user_name}_admin 账号，与个人账号不同，且只属于 administrators 用户组。
 
 
 ## 职责
@@ -36,7 +36,7 @@ admin 账号拥有最高权限，与显卡服务器的 root、admin 账号共用
 ## 用户管理
 
 * QNAP 本地用户管理：[文档](https://docs.qnap.com/nas/4.2/Home/sc/index.html?users.htm)
-* LDAP:
+* LDAP: 用于集中认证登陆
     * 基础：[LDAP概念和原理介绍](https://www.cnblogs.com/wilburxu/p/9174353.html)
     * 客户端：[配置Ubuntu使用ldap认证](https://www.iteye.com/blog/wuyaweiwude-1889452)
     * 权限：[使用 PAM 集成 OpenLDAP 实现 Linux 统一管理系统用户](https://www.ibm.com/developerworks/cn/linux/1406_liulz_pamopenldap/index.html)，“虽然用户可以在 LDAP 上维护，但是用户的权限信息还是维护在各自的应用系统上”
@@ -84,7 +84,10 @@ TODO: * 交换机
     * 域安全认证：选择 LDAP 认证 - 本机 NAS 上的 LDAP 服务器
     * 用户：确保“用户家目录”为启用
     * 用户组：设置 managers, members 用户组的文件夹访问权限
-    * 共享文件夹：确保 Public 和 homes 共享文件夹各权限类别的权限，其中 NFS 的要设置 NO_ROOT_SQUASH，否则 chown 等命令无法使用
+    * 共享文件夹：确保 Public 和 homes 共享文件夹各权限类别的权限
+        * Public: managers 用户组权限设为读写，members 用户组权限设为只读
+        * homes: managers 和 members 用户组权限均设为只读，这样可以避免用户间无意删除数据，且各自的 home 目录对各用户还是可读写的
+        * NFS：设置为 ROOT_SQUASH，但会导致 chown 等命令无法使用
     * 磁盘限额：设置每个用户的磁盘配额
 * APP Center：
     * 安装 Download Station

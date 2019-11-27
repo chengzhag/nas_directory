@@ -4,7 +4,7 @@
 
 ## 管理
 
-用户组：每人拥有一个或多个账户，分属 administrators, managers, members 用户组
+用户组：administrators, managers, members，每人拥有一个账户，可能属于 members 用户组或同时属于 members, managers 用户组
 * administrators: NAS 管理员（[NAS 管理员说明](documents/nas/README_admin.md)），为 NAS 本地用户
 * managers: Public、github 仓库管理员（[managers 管理员说明](documents/nas/README_managers.md)）
 * members: 普通用户
@@ -18,10 +18,12 @@
         * 显卡服务器上所有命令的 sudo 权限（暂定）
 
 用户：在 NAS 和各显卡服务器上是通用的，administrators 用户组之外的用户密码会在各服务器之间同步，{user_name} 按以下规则命名
-* members: 姓名拼音命名，如 chencai, zhengzinan, zhangcheng
-* managers: 在 members 命名规则的基础上添加 _manager 后缀
+* members, managers: 姓名拼音命名，如 chencai, zhengzinan, zhangcheng
 * administrators: 在 members 命名规则上添加 _admin 后缀。包括默认的 admin 用户（拥有最高权限）以及其他 NAS 管理员用户。
-认证：administrators 为 NAS 本地用户组，只能在 NAS 上登陆；managers, members 为集中认证用户组，可以在 NAS 和 显卡服务器上登陆
+
+认证：
+* administrators 为 NAS 本地用户组，只能在 NAS 上登陆
+* managers, members 为集中认证用户组，可以在 NAS 和 显卡服务器上登陆
 
 
 ## 目录结构
@@ -29,9 +31,11 @@
 NAS 私有文件夹 NAS:/homes/{user_name}，称为各用户的 home 文件夹：
 * 存放个人的代码、数据集、软件等
 * 只有 members 用户组的成员拥有，仅拥有者有读写权限
-* NAS:/homes 挂载到各 GPU:/home 路径下
+* members 和 managers 用户组的成员对 NAS:/homes 目录和他人的 home 文件夹有只读权限
+* NAS:/homes 挂载到 GPU:/home 路径下，各用户可以将 anaconda 等软件安装于 home，使其在各显卡服务器间共享
+* 各用户的存储空间有配额，可通过贡献或使用共享数据集避免个人配额的占用
 
-NAS 共享文件夹 NAS:/Public，只读，存储说明文件和公共数据集：
+NAS 共享文件夹 NAS:/Public，对 members 只读，存储说明文件和公共数据集：
 * datasets: 公共数据集，通常是网上发布的，成熟的数据集，维护一个列表方便共享
     * {dataset_name}: 
         * 以完整原始目录结构（作者发布时的目录结构）保存在 {dataset_name} 文件夹下，每个数据集一个文件夹，目录结构不应有空格
@@ -40,7 +44,9 @@ NAS 共享文件夹 NAS:/Public，只读，存储说明文件和公共数据集�
     * README.md: 存放数据集的上传者、链接、分类、hash、大小等信息
     * 说明：任何人都可以
 * documents: 存放团队器材、服务器资料和文档
-    * nas: 存放 [NAS 使用说明](documents/nas/README.md)和规范
+    * eos_r: [EOS R 相机使用说明](documents/eos_r/README.md)
+    * nas: [NAS 使用说明](documents/nas/README.md)和规范
+    * server: [服务器使用说明](documents/server/README.md) #TODO、装机脚本和装机软件
 * README.md: 解释目录结构、新手入门
 
 

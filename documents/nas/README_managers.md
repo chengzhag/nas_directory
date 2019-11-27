@@ -1,6 +1,10 @@
 # manaagers 管理员说明
 
 
+## 账号
+managers 的个人账号同属 members 和 managers 两个用户组，拥有对 NAS/Public 的读写权限。
+
+
 ## 职责
 
 * 负责：merge github 仓库的 pull request，将 github 仓库的更新拉取到本地，拥有对 /Public 的读写权限

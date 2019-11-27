@@ -2,7 +2,7 @@
 
 
 ## 账号
-root 账号和 admin 账号与 NAS 的 admin 账号共用密码
+root 和 admin 账号与 NAS 的 admin 账号共用密码。
 
 
 ## 重装

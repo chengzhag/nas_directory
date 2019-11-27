@@ -40,7 +40,8 @@
 * [应用工具](https://www.qnap.com/zh-cn/utilities/essentials)：快捷访问 NAS
     * Qfinder Pro: 帮助您透过局域网络与 QNAP NAS 建立联机.。使用Windows 版本的「Storage Plug & Connect」功能，更可将 NAS 当作联机的网络驱动器或是虚拟磁盘。
 	* myQNAPcloud Connect: 专为 Windows 使用者设计。安装后，使用者便可安全快速地存取区网内的 QNAP NAS，并可于档案总管内以拖曳的方式轻松管理档案。
-* 挂载：通过 NFS、SMB 等文件共享协议可以将 NAS 通过局域网挂载到个人电脑
+    * Qsync: 自动将档案同步至与 QNAP NAS相连的装置上。
+* 挂载：通过 NFS、SMB 等文件共享协议可以将 NAS 的 home 和 Public 文件夹挂载到个人电脑
     * NFS: 面向 Linux/Unix 用户
         * [如何在Ubuntu 18.04上设置NFS挂载](https://www.howtoing.com/how-to-set-up-an-nfs-mount-on-ubuntu-18-04): 挂载和卸载
         * [文件服务器之一：NFS服务器](http://cn.linux.vbird.org/linux_server/0330nfs.php): 详解
