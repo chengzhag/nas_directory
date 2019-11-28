@@ -70,3 +70,13 @@ make
 cp aqc111.ko /lib/modules/$(uname -r)/kernel/drivers/net/usb/
 depmod -a
 cd ~
+
+
+#删除已有的 swap 文件，设置新的 swap 文件，启动时挂载已设置
+swapoff /swapfile
+rm /swapfile
+fallocate -l 128G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+#echo "/swapfile none swap sw 0 0" >> /etc/fstab
