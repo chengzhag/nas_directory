@@ -27,7 +27,10 @@ admin 账号拥有最高权限，与显卡服务器的 root、admin 账号共用
         * [文件服务器之一：NFS服务器](http://cn.linux.vbird.org/linux_server/0330nfs.php)
     * SMB: CIFS, Windows文件共享协议
         * [如何在QTS 4.2 中使用SMB 3.0](https://www.qnap.com/zh-tw/how-to/tutorial/article/如何在-qts-4-2-中使用-smb-3-0/)
-    * MAC 文件共享协议 #TODO
+    * MAC 文件共享协议 
+        * 系统自带Finder中`前往 -> 连接服务器` 挂载到`192.168.1.119:Public`或者`192.168.1.119:/home/{$USER}` 默认使用的是和Windows相同`samba`文件共享协议，也可以再设置为`afp`等
+        * 也可用[Qfinder Pro](https://www.qnap.com/zh-cn/how-to/tutorial/article/%E5%B0%86%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8C%82%E8%BD%BD%E5%88%B0-mac-%E8%AE%A1%E7%AE%97%E6%9C%BA/)软件辅助挂载
+        * **注**: mac挂载可能第一次会遇到输入正确的用户名密码后无法连接，需要到管理员处重置一下密码即可。
     * 对比：
         * [到底使用 nfs 还是 smb？ 说一下遇到的几个问题](https://www.v2ex.com/t/538664)
         * [Network share: Performance differences between NFS & SMB](https://ferhatakgun.com/network-share-performance-differences-between-nfs-smb/)

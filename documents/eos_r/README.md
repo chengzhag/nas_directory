@@ -2,9 +2,9 @@
 ## 资料
 * 产品首页: https://www.canon.com.cn/product/r/index.html#hover
 * 说明书：
-    *  pdf
-    *  
-    *  
+    *  高级用户指南: ./archives/EOS R 高级用户指南.pdf
+    *  小屏幕设备指南: ./archives/高级用户指南-小屏幕设备(智能手机等)专用 - EOS R.pdf
+    *  补充信息: ./archives/EOS R 补充信息.pdf
 * 软件：
     * [EOS Digital Solution Disk Software](https://www.canon.com.cn/supports/download/simsdetail/0200570205.html?modelId=515&channel=2): 包含适用于EOS数码相机的各种应用程序
     * [Camera Connect](https://www.canon.com.cn/special/wifilife/camera.html): iOS, Android 手机控制，[说明](https://www.canon.com.cn/product/eos/video/cameraconnect.html)
@@ -41,9 +41,10 @@
 
 ## 配件
 * 转接环——Canon原装，EF RF卡口
+* 镜  头——Canon原装，24-105mm变焦，带AF、镜头防抖功能
 * SD 卡——UHS II 128G SD卡
 * 读卡器——90Mb/s读取，250Mb/s写入
 * 相机包——内胆，可装一个相机两个镜头，以及小配件
 * UV 镜——目前只配置一块减光镜
-* 三脚架——碳纤维，轻便，可折叠
+* 三脚架——碳纤维，轻便，可折叠，最高170cm
 * 清洁工具——气吹，抹布，清洁剂，镜头笔

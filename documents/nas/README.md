@@ -42,32 +42,45 @@
 	* myQNAPcloud Connect: 专为 Windows 使用者设计。安装后，使用者便可安全快速地存取区网内的 QNAP NAS，并可于档案总管内以拖曳的方式轻松管理档案。
     * Qsync: 自动将档案同步至与 QNAP NAS相连的装置上。
 * 挂载：通过 NFS、SMB 等文件共享协议可以将 NAS 的 home 和 Public 文件夹挂载到个人电脑
-    * NFS: 面向 Linux/Unix 用户
+    * NFS: 面向 **Linux/Unix** 用户
         * [如何在Ubuntu 18.04上设置NFS挂载](https://www.howtoing.com/how-to-set-up-an-nfs-mount-on-ubuntu-18-04): 挂载和卸载
         * [文件服务器之一：NFS服务器](http://cn.linux.vbird.org/linux_server/0330nfs.php): 详解
-        * 说明 1：显卡服务器采用此方式挂载，个人电脑也可使用此挂载方式，但要求先配置 LDAP 认证 #TODO: 在 Linux 上配置 LDAP 认证，之后可以通过以下命令挂载。
+        * **说明 1**：显卡服务器采用此方式挂载，**个人电脑**也可使用此挂载方式，由于 NFS 本身的服务并没有进行身份登入的识别（[文件服务器之一：NFS服务器](http://cn.linux.vbird.org/linux_server/0330nfs.php)），因此挂载目录的权限会跟随个人电脑上登陆的用户和用户组，所以要求先完成以下两种配置以解决读写权限问题，如下: 
+          1. *配置 LDAP 认证*:
             1. 安装必要软件：
                 ```
                 sudo apt install nfs-common
                 ```
-            1. 挂载 Public 文件夹：
+            2. #TODO: 在 本地 Linux 上配置 LDAP 认证，软件配置GUI过程中的选项， 之后可以通过以下命令挂载。
+            3. 挂载 Public 文件夹：
                 ```
                 mkdir /media/Public
                 sudo mount 192.168.1.119:/Public /media/Public
                 ```
-            1. 挂载 home 文件夹：
+            4. 挂载 home 文件夹：
                 ```
                 sudo mount 192.168.1.119:/homes/${USER} {指定挂载目标路径}
                 ```
-            1. 如需卸载：
+            5. 如需卸载：
                 ```
                 sudo umount /media/Public
                 ```
-        * 说明 2：由于 NFS 本身的服务并没有进行身份登入的识别（[文件服务器之一：NFS服务器](http://cn.linux.vbird.org/linux_server/0330nfs.php)），因此挂载目录的权限会跟随个人电脑上登陆的用户和用户组，因此建议先配置 LDAP 认证，以保证用户名和用户组名与 NAS 一致
-    * SMB：CIFS, Windows 文件共享协议
+          2. *本地新建用户和NAS用户配对*:
+            1. 本地新建配对用户组（与NAS认证用户的gid一致）:
+                ```
+                sudo groupadd -g ${gid} ${groupname}
+                ``` 
+            2. 本地新建配对用户（与NAS认证用户的uid、gid一致）:
+                ```
+                sudo useradd -m -u ${uid} -g ${gid} ${username}
+                ```
+    * SMB：CIFS, **Windows** 文件共享协议
         * [通过smb协议将服务器上的目录挂载至本地目录](https://www.qiansw.com/through-the-smb-protocol-on-the-server-directory-to-mount-a-local-directory.html)
         * 说明：也可以通过 Qfinder Pro 挂载
-    * MAC 文件共享协议 #TODO
+    * **MAC** 文件共享协议
+        * 系统自带Finder中`前往 -> 连接服务器` 挂载到`192.168.1.119:/Public`或者`192.168.1.119:/home/${USER}` 默认使用的是和Windows相同`samba`文件共享协议，也可以再设置为`afp`等
+        * 也可用[Qfinder Pro](https://www.qnap.com/zh-cn/how-to/tutorial/article/%E5%B0%86%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8C%82%E8%BD%BD%E5%88%B0-mac-%E8%AE%A1%E7%AE%97%E6%9C%BA/)软件辅助挂载
+        * **注**: mac挂载可能第一次会遇到输入正确的用户名密码后无法连接，需要到管理员处重置一下密码即可。
 
 
 ## 网络

@@ -8,7 +8,7 @@ apt -y --force-yes install openssh-server exfat-utils ethtool net-tools gcc make
 apt -y --force-yes install nfs-common
 mkdir /media/Public
 mount 192.168.1.119:/Public /media/Public
-echo "192.168.1.119:/Public /media/Public nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0"  >> /etc/fstab
+echo "192.168.1.119:/Public /media/Public nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0,_netdev"  >> /etc/fstab
 mount 192.168.1.119:/homes /home
 echo "192.168.1.119:/homes /home nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0"  >> /etc/fstab
 

@@ -12,43 +12,15 @@ root 和 admin 账号与 NAS 的 admin 账号共用密码。
     1. LDAP root account password: 输入 NAS 上设置的 LDAP root 账户密码
     1. Local crypt to use when changing passwords: md5
 1. 安装显卡驱动、cuda、cudnn
-    1. Nividia 驱动安装
-        ```
-        # 查看是否禁用nouveau驱动
-        lsmod | grep nouveau # 查看是否禁用nouveau驱动
-        # 查看。如果没有任何输出就是禁用成功了。否则如下。
-        sudo gedit /etc/modprobe.d/blacklist-nouveau.conf
-        # 填入以下内容
-        blacklist nouveau
-        options nouveau modeset=0
-
-        sudo update-initramfs -u
-        sudo reboot # 重启电脑
-
-        sudo service lightdm stop # 禁用桌面
-        sudo ./NVIDIA-Linux-***.run # 安装特定版本驱动，在Nvidia网站下载
-
-        # 其中安装时的选项
-        The distribution-provided pre-install script failed! Are you sure you want to continue? 选择 yes 继续。
-        
-        Would you like to register the kernel module souces with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later? 选择 No 继续。
-        
-        Nvidia’s 32-bit compatibility libraries? 选择 No 继续。
-        
-        Would you like to run the nvidia-xconfigutility to automatically update your x configuration so that the NVIDIA x driver will be used when you restart x? Any pre-existing x confile will be backed up. 选择 Yes 继续
-
-        sudo service lightdm start # 启用桌面 
-        nvidia-smi # 检查驱动
-        ```
-    1. Nvidia驱动升级
+    1. Nividia 驱动安装（升级一样）
         ```
         sudo add-apt-repository ppa:graphics-drivers/ppa
         sudo apt update
         ubuntu-drivers devices
-        sudo apt install nvidia-driver-*** # 安装指定驱动(这里挑选自己需要的驱动,然后安装即可,不必卸载之前装过的驱动
+        sudo apt install nvidia-driver-*** # 安装指定驱动(这里挑选自己需要的驱动,然后安装即可,不必卸载之前装过的驱动，注意Ubuntu 16最高支持418
         sudo reboot # 重启
         ```
-    1. cuda安装
+    2. cuda安装
 
         到 [CUDA Toolkit Download](https://developer.nvidia.com/cuda-downloads) 下载所需版本 .run文件，以 cuda_9.0.176_384.81_linux.run为例
         ```
@@ -87,7 +59,7 @@ root 和 admin 账号与 NAS 的 admin 账号共用密码。
 
         nvcc --version
         ```  
-    1. 对应cudnn安装
+    3. 对应cudnn安装
         
         对应cuda下载cudnn的安装文件：https://developer.nvidia.com/rdp/cudnn-archive
         ```
@@ -100,7 +72,7 @@ root 和 admin 账号与 NAS 的 admin 账号共用密码。
 
         sudo chmod a+r /usr/local/cuda/lib64/libcudnn*
         ```
-    1. cuda版本切换
+    4. cuda版本切换
         ```
         # 在切换cuda版本时
         rm -rf /usr/local/cuda # 删除之前创建的软链接
