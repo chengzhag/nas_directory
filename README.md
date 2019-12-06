@@ -1,5 +1,7 @@
 # NAS 入门指南
 
+NAS 实现了集中的网络存储，团队的所有数据集、用户文件都存储在 NAS 上，显卡服务器和个人电脑都可以高速地访问。
+
 以下用 NAS:/ 表示 NAS 的根目录，GPU:/ 表示各显卡服务器的根目录。
 
 ## 管理
@@ -42,7 +44,7 @@ NAS 共享文件夹 NAS:/Public，对 members 只读，存储说明文件和公�
         * 如果数据集下载为压缩包，需要解压至对应文件夹
         * 使用时链接到需要使用的目录下 #TODO: 如何链接
     * README.md: 存放数据集的上传者、链接、分类、hash、大小等信息
-    * 说明：任何人都可以
+    * 说明：任何人都可以只读地使用公共数据集，也可以贡献自己下载的数据集，以节省自己家目录的配额
 * documents: 存放团队器材、服务器资料和文档
     * eos_r: [EOS R 相机使用说明](documents/eos_r/README.md)
     * nas: [NAS 使用说明](documents/nas/README.md)和规范
@@ -59,16 +61,22 @@ NAS 共享文件夹 NAS:/Public，对 members 只读，存储说明文件和公�
 
 ## 贡献
 
-所有用户都可以通过以下方式对 NAS 的管理和使用做出贡献。
+工具：贡献流程需要用到的工具
+* [github](https://github.com/): 在 github 上注册账号，并了解其仓库、绑定客户端、issue 等基本功能
+    * [Github入门与实践](https://www.jianshu.com/p/38611735b15e)
+    * [GitHub 入门教程](https://www.cnblogs.com/xueweihan/p/7217846.html)
+* [git](https://git-scm.com/): 安装 git 并了解克隆、提交、pull request 等 git 的基本操作
+    * [猴子都能懂的GIT入门](https://backlog.com/git-tutorial/cn/)
+    * [Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
+* [gitkraken](https://www.gitkraken.com/): 一个 git 客户端，可以通过 GUI 实现克隆、提交等操作（也可使用其他 GUI 或命令行客户端）
+    * [Learning Git with GitKraken](https://support.gitkraken.com/start-here/guide/)
+    * [Support Home](https://support.gitkraken.com/)
 
-公共数据集：使用公共数据集可以节省 home 文件夹空间
-* NAS:/Public/datasets 文件夹用于存储公共数据集，只读
-* 管理员和普通用户均通过以下步骤申请公共数据集入库：
-    1. 下载数据集到个人 home 文件夹
-    2. 将数据集解压到个人 home 文件夹中，以数据集名称命名，命名应不包含空格，空格以 '_' 替代
-    3. 将 [nas_directory](https://github.com/pidan1231239/nas_directory) 仓库克隆到个人电脑，编辑 datasets/README.md，按格式添加数据集的信息
-    4. 完善 commit 信息并提交 commit
-    5. 向原仓库发起 pull request，交由 managers 进行 merge 并将数据集入库到 NAS:/Public/datasets
+公共数据集：
+* NAS:/datasets 用来保存公共数据集
+* 要求为网上发布的公开数据集
+* 将数据集提交到 NAS:/datasets 可以节省 home 文件夹的配额
+* 如何提交数据集请参考[公共数据集](datasets/README.md)
 
 建议和补充：
 * 对 README 和 NAS:/Public/documents 等说明文件有修改建议和补充的：
@@ -76,7 +84,3 @@ NAS 共享文件夹 NAS:/Public，对 members 只读，存储说明文件和公�
     1. 完善 commit 信息并提交 commit
     1. 向原仓库发起 pull request，交由 managers 进行 merge
 * 注意：pdf 等文件请勿提交到 commit 中，因为文件可能较大且无法追踪更改，应将此类文件暂存到个人 home 文件夹文件夹，并在 pull request 中说明此类文件的增改（说明将新增文件移动到 NAS:/Public 下的哪个文件或覆盖哪个文件）
-
-TODO：详细贡献数据集、贡献说明，github 使用说明，GUI git 软件建议，pull request 发起说明
-
-
