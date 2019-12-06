@@ -7,4 +7,5 @@
     ```
     sudo chown -R root.root {dataset_name}
     ```
+1. 打开 NAS:/Public 的 git 仓库并拉取（Pull） github 的更新
 1. 在 github 上 close issue
