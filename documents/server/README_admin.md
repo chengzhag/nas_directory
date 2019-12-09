@@ -14,7 +14,7 @@ root 和 admin 账号与 NAS 的 admin 账号共用密码。
     1. Does the LDAP database require login?： no
     1. LDAP root account password: 输入 NAS 上设置的 LDAP root 账户密码
     1. Local crypt to use when changing passwords: md5
-1. 在 GUI 设置网络 MTU 为 9000
+1. 插拔网卡，在 GUI 设置网络 MTU 为 9000
 1. 安装显卡驱动、cuda、cudnn
     1. Nividia 驱动安装（升级一样）
         ```
