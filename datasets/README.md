@@ -28,3 +28,12 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - [CIFAR-10 python version](https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz) -> cifar-10/cifar-10-batches-py
     - [CIFAR-10 Matlab version](https://www.cs.toronto.edu/~kriz/cifar.html) -> cifar-10/cifar-10-batches-mat
     - [CIFAR-10 binary version (suitable for C programs)](https://www.cs.toronto.edu/~kriz/cifar.html) -> cifar-10/cifar-10-batches-bin
+
+## HDR+
+- 主页：[The HDR+ dataset](https://hdrplusdata.org/)
+- 关键词：图像去噪，HDR，image denoising
+- 引用：[Hasinoff, Samuel W., et al. "Burst photography for high dynamic range and low-light imaging on mobile cameras." ACM Transactions on Graphics (TOG) 35.6 (2016): 192.](http://delivery.acm.org/10.1145/2990000/2980254/a192-hasinoff.pdf?ip=117.148.168.151&id=2980254&acc=OA&key=4D4702B0C3E38B35%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35%2E5945DC2EABF3343C&__acm__=1575892201_3f53a4f48b4636fd92d7dbc18fdbd7cf)
+- 相关链接：
+    - [数据集主页](https://hdrplusdata.org/dataset.html): 有关如何引用数据集的信息，请参阅详细说明
+    - [机器感知Google 推出 HDR+ 连拍摄影数据集](https://zhuanlan.zhihu.com/p/34391353)
+- 说明：The dataset consists of 3640 bursts (made up of 28461 images in total), organized into subfolders, plus the results of our image processing pipeline. Each burst consists of the raw burst input (in DNG format) and certain metadata not present in the images, as sidecar files. For results, we provide both the intermediate result of aligning and merging the frames (also in DNG format), and the final result of our pipeline (as a JPG).
