@@ -6,11 +6,15 @@ root 和 admin 账号与 NAS 的 admin 账号共用密码。
 
 
 ## 重装
-1. 重装系统
+1. 重装 ubuntu 16 系统
+    * 系统语言设为英语
+    * 初始用户设为 manager
+    * 主机命名为 LSC-GPU{02d}（如 LSC-GPU01）
 1. 将脚本 initserver.sh 复制到服务器并以 root 账户运行 ```bash initserver.sh```，运行结束后自动打开交互式界面（dpkg-reconfigure ldap-auth-config），手动设置以下参数（其他参数已通过脚本设置，按回车键跳过）：
     1. Does the LDAP database require login?： no
     1. LDAP root account password: 输入 NAS 上设置的 LDAP root 账户密码
     1. Local crypt to use when changing passwords: md5
+1. 在 GUI 设置网络 MTU 为 9000
 1. 安装显卡驱动、cuda、cudnn
     1. Nividia 驱动安装（升级一样）
         ```
@@ -80,38 +84,9 @@ root 和 admin 账号与 NAS 的 admin 账号共用密码。
         nvcc --version #查看当前 cuda 版本
         ```
 
+
 ## 脚本
 
-* 显卡服务器安装脚本：initserver.sh, 重装系统后以 root 账户运行
-    1. 安装 nfs 依赖库，挂载 Public、tmp 文件夹，设置开机自动挂载：[如何在Ubuntu 18.04上设置NFS挂载](https://www.howtoing.com/how-to-set-up-an-nfs-mount-on-ubuntu-18-04)
-        ```
-        apt install nfs-common
-        mkdir /media/Public
-        mount 192.168.1.119:/Public /media/Public
-        echo "192.168.1.119:/Public /media/Public nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0"  >> /etc/fstab
-		mount 192.168.1.119:/homes /home
-		echo "192.168.1.119:/homes /home nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0"  >> /etc/fstab
-        ```
-    1. 修改用户组 sudoer 权限：[sudoers的深入剖析与用户权限控制](https://segmentfault.com/a/1190000007394449)
-        ```
-        touch /etc/sudoers.d/members
-        echo "%members ALL=(ALL)ALL" >> /etc/sudoers.d/members
-        ```
-    1. 安装 ldap 依赖库，配置 ldap 服务：[配置Ubuntu使用ldap认证](https://www.iteye.com/blog/wuyaweiwude-1889452)
-        ```
-        LDAP_SERVER_IP=192.168.1.119
-        BASE_DN='dc=kc110lsc,dc=local'
-        ROOT_DN='cn=admin,dc=kc110lsc,dc=local'
-        ```
-
-
-* 用户初始化脚本：.profile, 复制到每个用户 home 文件夹，用户第一次登陆运行
-	1. 查找初始化脚本
-	2. 更改密码：[Linux 用户和用户组管理](https://www.runoob.com/linux/linux-user-manage.html)
-        ```
-		passwd ${USER}
-        ```
-	1. 安装 anaconda
-        ```
-		bash /media/Public/documents/server/app/Anaconda3-2019.10-Linux-x86_64.sh
-        ```
+* 显卡服务器安装脚本：initserver.sh, 重装系统后以 root 账户运行，具体功能参考注释
+* 用户初始化脚本：.profile, 复制到每个用户 home 文件夹，用户每次登陆运行
+* 用户初始化脚本：.inituser, 由 .profile 自动复制到各用户 home 文件夹，第一次登陆运行

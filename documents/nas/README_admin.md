@@ -53,12 +53,6 @@ admin 账号拥有最高权限，与显卡服务器的 root、admin 账号共用
 * [QNAP NAS 进阶文件夹权限管理设定](https://www.qnap.com/zh-cn/how-to/tutorial/article/qnap-nas-%E8%BF%9B%E9%98%B6%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E8%AE%BE%E5%AE%9A/)：启动高级文件权限可以为子文件夹分配权限，但考虑已经分配了多个共享文件夹，且有明确的权限规划，因此无需开启
 
 
-## 网络
-
-TODO: * 路由器
-TODO: * 交换机
-
-
 ## 全新安装
 
 [QNAP 线上安装](https://start.qnap.com/cn/?QfinderPro=1)

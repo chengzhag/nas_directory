@@ -42,20 +42,17 @@ NAS 共享文件夹 NAS:/Public，对 members 只读，存储说明文件和公�
     * {dataset_name}: 
         * 以完整原始目录结构（作者发布时的目录结构）保存在 {dataset_name} 文件夹下，每个数据集一个文件夹，目录结构不应有空格
         * 如果数据集下载为压缩包，需要解压至对应文件夹
-        * 使用时链接到需要使用的目录下 #TODO: 如何链接
+        * 使用时链接到需要使用的目录下
     * README.md: 存放数据集的上传者、链接、分类、hash、大小等信息
     * 说明：任何人都可以只读地使用公共数据集，也可以贡献自己下载的数据集，以节省自己家目录的配额
 * documents: 存放团队器材、服务器资料和文档
-    * eos_r: [EOS R 相机使用说明](documents/eos_r/README.md)
-    * nas: [NAS 使用说明](documents/nas/README.md)和规范
-    * server: [服务器使用说明](documents/server/README.md) #TODO、装机脚本和装机软件
 * README.md: 解释目录结构、新手入门
 
 
 ## 说明
 
-* [NAS 使用说明](documents/nas/README.md)
-* [服务器使用说明](documents/server/README.md) #TODO
+* [NAS 使用说明](documents/nas/README.md)：NAS 基本信息，如何访问 NAS，如何提升网速
+* [服务器使用说明](documents/server/README.md)：如何初始化账号
 * [EOS R 相机使用说明](documents/eos_r/README.md)
 
 
