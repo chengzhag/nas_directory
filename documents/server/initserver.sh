@@ -5,22 +5,6 @@ apt update
 apt -y --force-yes install openssh-server exfat-utils ethtool net-tools gcc make screen git
 
 
-#安装威联通 USB 网卡 QNA-UC5G1T 驱动
-#https://www.qnap.com/en/product/qna-uc5g1t
-cd /media/Public/documents/server/app/AQ_USBDongle_LinuxDriver_1.3.3.0/fiji/Linux
-make clean
-make
-#https://gadgetrip.jp/2019/09/review_qnap_qna_uc5g1t/
-make install
-#从内核中删除系统自带的 cdc_ether 模块，并将其加入黑名单
-#https://gadgetrip.jp/2019/09/review_qnap_qna_uc5g1t/
-rmmod cdc_ether
-#http://einverne.github.io/post/2018/09/modprobe.html
-touch /etc/modprobe.d/blacklist-usbnet.conf
-echo "blacklist cdc_ether" >> /etc/modprobe.d/blacklist-usbnet.conf
-cd ~
-
-
 #删除已有的 swap 文件，设置新的 swap 文件，启动时挂载已设置
 #https://www.cnblogs.com/EasonJim/p/7487596.html
 swapoff /swapfile
@@ -57,7 +41,6 @@ systemctl enable autofs
 #设置内核参数
 #https://blog.51cto.com/francis198/1847103
 #https://blog.51cto.com/13673885/2124308
-echo "\n" >> /etc/sysctl.conf
 echo "net.core.wmem_default = 8388608" >> /etc/sysctl.conf
 echo "net.core.rmem_default = 8388608" >> /etc/sysctl.conf
 echo "net.core.rmem_max = 16777216" >> /etc/sysctl.conf
@@ -108,6 +91,22 @@ sed -i 's/use_authtok//' /etc/pam.d/common-password
 /etc/init.d/nscd restart  
 #在交互界面中重新配置 LDAP root 密码
 dpkg-reconfigure ldap-auth-config
+
+
+#安装威联通 USB 网卡 QNA-UC5G1T 驱动
+#https://www.qnap.com/en/product/qna-uc5g1t
+cd /media/Public/documents/server/app/AQ_USBDongle_LinuxDriver_1.3.3.0/fiji/Linux
+make clean
+make
+#https://gadgetrip.jp/2019/09/review_qnap_qna_uc5g1t/
+make install
+#从内核中删除系统自带的 cdc_ether 模块，并将其加入黑名单
+#https://gadgetrip.jp/2019/09/review_qnap_qna_uc5g1t/
+rmmod cdc_ether
+#http://einverne.github.io/post/2018/09/modprobe.html
+touch /etc/modprobe.d/blacklist-usbnet.conf
+echo "blacklist cdc_ether" >> /etc/modprobe.d/blacklist-usbnet.conf
+cd ~
 
 
 #修改 root 密码

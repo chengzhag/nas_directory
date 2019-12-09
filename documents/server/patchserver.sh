@@ -16,15 +16,6 @@ mkswap /swapfile
 swapon /swapfile
 
 
-#从内核中删除系统自带的 cdc_ether 模块，并将其加入黑名单
-#https://gadgetrip.jp/2019/09/review_qnap_qna_uc5g1t/
-rmmod cdc_ether
-#http://einverne.github.io/post/2018/09/modprobe.html
-touch /etc/modprobe.d/blacklist-usbnet.conf
-echo "blacklist cdc_ether" >> /etc/modprobe.d/blacklist-usbnet.conf
-cd ~
-
-
 #配置 NAS 挂载
 #设置 nfs 缓存
 #https://blog.frehi.be/2019/01/03/fs-cache-for-nfs-clients/
@@ -56,6 +47,15 @@ echo "net.core.rmem_default = 8388608" >> /etc/sysctl.conf
 echo "net.core.rmem_max = 16777216" >> /etc/sysctl.conf
 echo "net.core.wmem_max = 16777216" >> /etc/sysctl.conf
 sysctl -p
+
+
+#从内核中删除系统自带的 cdc_ether 模块，并将其加入黑名单
+#https://gadgetrip.jp/2019/09/review_qnap_qna_uc5g1t/
+rmmod cdc_ether
+#http://einverne.github.io/post/2018/09/modprobe.html
+touch /etc/modprobe.d/blacklist-usbnet.conf
+echo "blacklist cdc_ether" >> /etc/modprobe.d/blacklist-usbnet.conf
+cd ~
 
 
 #修改 root 密码
