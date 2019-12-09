@@ -25,7 +25,7 @@ cd ~
 #https://www.cnblogs.com/EasonJim/p/7487596.html
 swapoff /swapfile
 rm /swapfile
-fallocate -l 128G /swapfile
+fallocate -l 32G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
@@ -42,7 +42,7 @@ systemctl start cachefilesd
 #安装 nfs 依赖库，设置自动挂载 Public、home 文件夹
 #https://www.jianshu.com/p/bedce559a0be
 #https://linux.die.net/man/5/autofs
-apt -y --force-yes install nfs-common,autofs
+apt -y --force-yes install nfs-common autofs
 echo "/media /etc/nfs-public.misc" >> /etc/auto.master
 echo "/home /etc/nfs-home.misc" >> /etc/auto.master
 touch /etc/nfs-public.misc

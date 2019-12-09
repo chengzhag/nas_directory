@@ -5,4 +5,5 @@
 !.profile
 !.inituser
 !initserver.sh
+!patchserver.sh
 !.bashrc
