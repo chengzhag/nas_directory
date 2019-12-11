@@ -41,7 +41,6 @@ systemctl enable autofs
 #设置内核参数
 #https://blog.51cto.com/francis198/1847103
 #https://blog.51cto.com/13673885/2124308
-echo "\n" >> /etc/sysctl.conf
 echo "net.core.wmem_default = 8388608" >> /etc/sysctl.conf
 echo "net.core.rmem_default = 8388608" >> /etc/sysctl.conf
 echo "net.core.rmem_max = 16777216" >> /etc/sysctl.conf
