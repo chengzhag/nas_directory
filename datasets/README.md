@@ -23,10 +23,11 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - [TensorFlow学习笔记（十）： CIFAR-10](https://blog.csdn.net/zeuseign/article/details/72773342)
     - [CIFAR-10 dataset 的下载与使用](https://www.cnblogs.com/irran/p/cifar-10.html)
 - 说明：The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.
-- 下载连接/数据集相对路径：
-    - [CIFAR-10 python version](https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz) -> cifar-10/cifar-10-batches-py
-    - [CIFAR-10 Matlab version](https://www.cs.toronto.edu/~kriz/cifar.html) -> cifar-10/cifar-10-batches-mat
-    - [CIFAR-10 binary version (suitable for C programs)](https://www.cs.toronto.edu/~kriz/cifar.html) -> cifar-10/cifar-10-batches-bin
+- 目录：cifar-10
+    - cifar-10-batches-py: [CIFAR-10 python version](https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz)
+    - cifar-10-batches-mat: [CIFAR-10 Matlab version](https://www.cs.toronto.edu/~kriz/cifar.html)
+    - cifar-10-batches-bin: [CIFAR-10 binary version (suitable for C programs)](https://www.cs.toronto.edu/~kriz/cifar.html)
+- 上传者：章程
 
 ## HDR+
 - 主页：[The HDR+ dataset](https://hdrplusdata.org/)
@@ -36,4 +37,24 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - [数据集主页](https://hdrplusdata.org/dataset.html): 有关如何引用数据集的信息，请参阅详细说明
     - [机器感知Google 推出 HDR+ 连拍摄影数据集](https://zhuanlan.zhihu.com/p/34391353)
 - 说明：The dataset consists of 3640 bursts (made up of 28461 images in total), organized into subfolders, plus the results of our image processing pipeline. Each burst consists of the raw burst input (in DNG format) and certain metadata not present in the images, as sidecar files. For results, we provide both the intermediate result of aligning and merging the frames (also in DNG format), and the final result of our pipeline (as a JPG).
-- 数据集相对路径：hdrplus/20171106_subset
+- 目录：hdrplus/20171106_subset
+- 上传者：陈才
+
+## Scene Flow
+- 主页：[Scene Flow Datasets: FlyingThings3D, Driving, Monkaa](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)
+- 关键词：深度估计，双目，光流，语义分割，视差，depth estimation, stereo, optical flow, segmentation, disparity
+- 引用：[A Large Dataset to Train Convolutional Networks for Disparity, Optical Flow, and Scene Flow Estimation](https://lmb.informatik.uni-freiburg.de/Publications/2016/MIFDB16/)
+- 相关链接：[Scene Flow Datasets数据集： FlyingThings3D, Driving, Monkaa](https://www.twblogs.net/a/5d0a47a3bd9eee1e5c815446/zh-cn)
+- 说明：The collection contains more than 39000 stereo frames in 960x540 pixel resolution, rendered from various synthetic sequences. For details on the characteristics and differences of the three subsets, we refer the reader to our paper. The following kinds of data are currently available.
+- 目录：sceneflow
+    - Sampler: [Sample pack](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlow/assets/Sampler.tar.gz)
+    - flyingthings3d__frames_cleanpass: [FlyingThings3D RGB images (cleanpass)](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/FlyingThings3D/raw_data/flyingthings3d__frames_cleanpass.tar.torrent)
+    - flyingthings3d__frames_finalpass: [FlyingThings3D RGB images (finalpass)](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/FlyingThings3D/raw_data/flyingthings3d__frames_finalpass.tar.torrent)
+    - flyingthings3d__disparity: [FlyingThings3D Disparity](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/FlyingThings3D/derived_data/flyingthings3d__disparity.tar.bz2.torrent)
+    - driving__frames_cleanpass: [Driving RGB images (cleanpass)](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/Driving/raw_data/driving__frames_cleanpass.tar.torrent)
+    - driving__frames_finalpass: [Driving RGB images (finalpass)](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/Driving/raw_data/driving__frames_finalpass.tar.torrent)
+    - driving__disparity: [Driving Disparity](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/Driving/derived_data/driving__disparity.tar.bz2.torrent)
+    - monkaa__frames_cleanpass: [Monkaa RGB images (cleanpass)](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/Monkaa/raw_data/monkaa__frames_cleanpass.tar)
+    - monkaa__final_cleanpass: [Monkaa RGB images (finalpass)](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/Monkaa/raw_data/monkaa__frames_finalpass.tar)
+    - monkaa__disparity: [Monkaa Disparity](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/Monkaa/derived_data/monkaa__disparity.tar.bz2)
+- 上传者：章程
