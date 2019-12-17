@@ -50,8 +50,8 @@ sysctl -p
 
 #修改用户组 sudoer 权限
 #https://segmentfault.com/a/1190000007394449
-touch /etc/sudoers.d/members
-echo "%members ALL=(ALL)ALL" >> /etc/sudoers.d/members
+#touch /etc/sudoers.d/members
+#echo "%members ALL=(ALL)ALL" >> /etc/sudoers.d/members
 
 
 #安装 ldap 依赖库，配置 ldap 服务
@@ -107,7 +107,3 @@ rmmod cdc_ether
 touch /etc/modprobe.d/blacklist-usbnet.conf
 echo "blacklist cdc_ether" >> /etc/modprobe.d/blacklist-usbnet.conf
 cd ~
-
-
-#修改 root 密码
-passwd root
