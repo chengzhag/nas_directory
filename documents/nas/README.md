@@ -44,11 +44,17 @@
 * 挂载：通过 NFS、SMB 等文件共享协议可以将 NAS 的 home 和 Public 文件夹挂载到个人电脑
     * NFS: 面向 **Linux/Unix** 用户，显卡服务器采用此方式挂载，个人电脑也可使用此挂载方式
         1. 本地新建用户和NAS用户配对：由于 NFS 本身的服务并没有进行身份登入的识别（[文件服务器之一：NFS服务器](http://cn.linux.vbird.org/linux_server/0330nfs.php)），因此挂载目录的权限会跟随个人电脑上登陆的用户 ID 和用户组 ID，所以要求先完成以下配置以解决读写权限问题: 
-            1. 本地新建配对用户组（与NAS认证用户的gid一致）:
+            1. 查看NAS认证用户的gid和uid: 
+                ```
+                # 在任意一台服务器上登录自己的账户，并查看id信息，例如：
+		chencai@LSC-GPU03:~$ id chencai
+		uid=1000004(chencai) gid=1000000(Domain Users) groups=1000000(Domain Users),1000001(managers),1000002(members)
+                ```
+            1. 本地新建配对用户组（必须与NAS认证用户的gid一致，name可以随便取）:
                 ```
                 sudo groupadd -g ${gid} ${groupname}
                 ``` 
-            2. 本地新建配对用户（与NAS认证用户的uid、gid一致）:
+            2. 本地新建配对用户（必须与NAS认证用户的uid、gid一致，name可以随便取）:
                 ```
                 sudo useradd -m -u ${uid} -g ${gid} ${username}
                 ```
