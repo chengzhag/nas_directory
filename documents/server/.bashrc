@@ -92,7 +92,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 #
-alias sudo='sudo env PATH=$PATH'
+# alias sudo='sudo env PATH=$PATH'
 #
 
 # Add an "alert" alias for long running commands.  Use like so:
