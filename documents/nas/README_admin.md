@@ -62,9 +62,12 @@ admin 账号拥有最高权限，与显卡服务器的 root、admin 账号共用
     * 常规设置：
         * 服务器名称：kc110lsc
         * 时间服务器：cn.ntp.org.cn
-    * 存储与快照总管：配置好 Qtier
-    * 硬件：
-        * 警告音：取消勾选“系统程序”
+    * 存储与快照总管：
+        * 配置好 Qtier
+        * 概述 - 快照：设置每天保存一次快照，保存 5 天
+        * 存储空间 - 磁盘 - 磁盘运行状况 - 设置：每天进行快速测试，对 HDD 每周进行完整测试
+    * 硬件 - 警告音：取消勾选“系统程序”
+    * 外接设备 - UPS：勾选“当电源失效时，10 分钟之后将进入自动保护模式”
     * 通知中心：配置好 admin 账户的通知
 * 网络 & 文件服务：
     * 网络与虚拟交换机：配置好万兆网口的链路聚合，Balance-alb
@@ -84,7 +87,9 @@ admin 账号拥有最高权限，与显卡服务器的 root、admin 账号共用
     * 共享文件夹：确保 Public 和 homes 共享文件夹各权限类别的权限
         * Public: managers 用户组权限设为读写，members 用户组权限设为只读
         * homes: managers 和 members 用户组权限均设为只读，这样可以避免用户间无意删除数据，且各自的 home 目录对各用户还是可读写的
-        * NFS：设置为 ROOT_SQUASH，但会导致 chown 等命令无法使用
+        * NFS：
+            * 根据各显卡服务器的主机名或 IP 添加访问权限，Squash 设置为 NO_ROOT_SQUASH，Public 和 homes 均设为读写
+            * 添加“*”主机以设置其他客户端的访问权限，Squash 设置为 ROOT_SQUASH，Public 设为只读，homes 设为读写
     * 磁盘限额：设置每个用户的磁盘配额
 * APP Center：
     * 安装 Download Station
