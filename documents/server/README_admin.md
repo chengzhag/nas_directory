@@ -14,7 +14,19 @@ root 和 admin 账号与 NAS 的 admin 账号共用密码。
     1. Does the LDAP database require login?： no
     1. LDAP root account password: 输入 NAS 上设置的 LDAP root 账户密码
     1. Local crypt to use when changing passwords: md5
-1. 插拔网卡，在 GUI 设置网络 MTU 为 9000
+1. 设置网络参数
+    1. 用 ifconfig 查询网卡的接口名称（如 enx245ebe4300d7）
+    1. 编辑 /etc/network/interfaces，添加：
+        ```
+        auto {接口名称}
+        iface {接口名称} inet static
+        address 192.168.1.{自定义的 IP}
+        netmask 255.255.255.0
+        gateway 192.168.1.{路由器 IP}
+        dns-nameserver 192.168.1.{路由器 IP}
+        mtu 9000
+        ```
+    1. 重启网络：```sudo /etc/init.d/networking restart```
 1. 安装显卡驱动、cuda、cudnn
     1. Nividia 驱动安装（升级一样）
         ```
