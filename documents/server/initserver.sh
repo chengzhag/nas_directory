@@ -29,7 +29,7 @@ sed -i "s/3%/20%/g" /etc/cachefilesd.conf
 systemctl start cachefilesd
 #设置 tmpfiles.d 定期删除 /tmp 下的文件
 touch /etc/tmpfiles.d/tmp.conf
-echo "d /tmp/ - - - 1d" >> /etc/tmpfiles.d/tmp.conf
+echo "d /tmp/ - - - 1w" >> /etc/tmpfiles.d/tmp.conf
 systemctl start systemd-tmpfiles-clean
 #安装 nfs 依赖库，设置自动挂载 Public、home 文件夹
 #https://www.jianshu.com/p/bedce559a0be
