@@ -14,6 +14,7 @@ root 和 admin 账号与 NAS 的 admin 账号共用密码。
     1. Does the LDAP database require login?： no
     1. LDAP root account password: 输入 NAS 上设置的 LDAP root 账户密码
     1. Local crypt to use when changing passwords: md5
+1. 用 ```sudo teamviewer --passwd ***``` 设置 teamviewer 密码，用 ```sudo teamviewer --info print id ``` 查看 teamviewer ID
 1. 设置网络参数
     1. 用 ifconfig 查询网卡的接口名称（如 enx245ebe4300d7）
     1. 编辑 /etc/network/interfaces，添加：
@@ -27,6 +28,7 @@ root 和 admin 账号与 NAS 的 admin 账号共用密码。
         mtu 9000
         ```
     1. 重启网络：```sudo /etc/init.d/networking restart```
+    1. 在 NAS 管理页面设置 NFS 挂载权限（[NAS 管理员说明](../nas/README_admin.md)）
 1. 安装显卡驱动、cuda、cudnn
     1. Nividia 驱动安装（升级一样）
         ```

@@ -1,10 +1,11 @@
-echo "第一步：更改用户密码"
+echo "复制 /etc/skel/ 文件
+cp /etc/skel/.bashrc /home/${USER}/.bashrc
+cp /etc/skel/.bash_logout /home/${USER}/.bash_logout
+cp /etc/skel/examples.desktop /home/${USER}/examples.desktop
+
+echo "更改用户密码"
 passwd
 
-echo "第二步：复制 .bashrc"
-cp /media/Public/documents/server/.bashrc ~
-
-echo "第三步：安装 anaconda"
+echo "安装 anaconda"
 bash /media/Public/documents/server/app/Anaconda3-2019.10-Linux-x86_64.sh
-
 
