@@ -37,7 +37,9 @@
         * administrators: 可管理 NAS 设置、用户权限等
         * managers, members: 可在管理页面访问允许的应用（如 Download Station）
     * 网址：[公网](http://kc110lsc.myqnapcloud.com:5001/cgi-bin/)，[内网](https://192.168.1.119:5001/cgi-bin/)
-    * 功能：TODO
+    * 功能：
+        * Download Station：可以挂机下载 BT、HTTP、HTTPS、FTP、FTPS 文件
+        * File Station：文件管理器，删除、移动、复制、解压等操作在这里进行可以比挂载后在终端上进行速度更快
 * [应用工具](https://www.qnap.com/zh-cn/utilities/essentials)：快捷访问 NAS
     * Qfinder Pro: 帮助您透过局域网络与 QNAP NAS 建立联机.。使用Windows 版本的「Storage Plug & Connect」功能，更可将 NAS 当作联机的网络驱动器或是虚拟磁盘。
 	* myQNAPcloud Connect: 专为 Windows 使用者设计。安装后，使用者便可安全快速地存取区网内的 QNAP NAS，并可于档案总管内以拖曳的方式轻松管理档案。
@@ -102,7 +104,7 @@
     1. 下载本 github 仓库目录下的 [kc110lsc.ovpn](kc110lsc.ovpn) 文件，打开文件按其中的说明自定义配置文件
     1. 打开 OpenVPN，找到“导入配置文件”，选择下载的 .ovpn 文件
     1. 点击连接，输入自己的用户名和密码并确认
-* Mac：TODO
+* Mac：#TODO
 
 现在你应该可以像在教研室一样访问 NAS 和 GPU 了
 
