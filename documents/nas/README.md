@@ -98,13 +98,17 @@
 
 ## 外网访问
 
-通过[访问](#访问)小节的外网链接，仅能访问管理界面，如需从外网访问服务器和挂载 NAS，可按如下说明配置 VPN（参考[How To Set Up A Qnap Nas As A VPN Server?](http://qnapsupport.net/how-to-set-up-a-qnap-nas-as-a-vpn-server/)）：
+通过[访问](#访问)小节的外网链接，仅能访问管理界面，如需从外网访问服务器和挂载 NAS，可按如下说明配置 VPN（参考[How To Set Up A Qnap Nas As A VPN Server?](http://qnapsupport.net/how-to-set-up-a-qnap-nas-as-a-vpn-server/)，[如何设置和使用qvpn-2.0](https://www.qnap.com.cn/zh-cn/how-to/tutorial/article/如何设置和使用-qvpn-2-0/)）：
 * Windows：
     1. 下载并安装 [OpenVPN](https://openvpn.net/community-downloads/)
     1. 下载本 github 仓库目录下的 [kc110lsc.ovpn](kc110lsc.ovpn) 文件，打开文件按其中的说明自定义配置文件
     1. 打开 OpenVPN，找到“导入配置文件”，选择下载的 .ovpn 文件
     1. 点击连接，输入自己的用户名和密码并确认
-* Mac：#TODO
+* Mac
+    1. 从 Tunnelblick 网站安装 [Tunnelblick](https://tunnelblick.net/downloads.html)。
+    1. 下载本 github 仓库目录下的 [kc110lsc.ovpn](kc110lsc.ovpn) 文件，打开文件按其中的说明自定义配置文件
+    1. 打开 Tunnelblick，双击 OpenVPN 配置文件，将自动导入配置文件。
+    1. 单击“Connect”（连接)，输入自己的用户名和密码并确认。
 
 现在你应该可以像在教研室一样访问 NAS 和 GPU 了
 
