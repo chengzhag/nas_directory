@@ -36,7 +36,8 @@
     * 用户组：
         * administrators: 可管理 NAS 设置、用户权限等
         * managers, members: 可在管理页面访问允许的应用（如 Download Station）
-    * 网址：[公网](http://kc110lsc.myqnapcloud.com/)，[内网](http://192.168.1.119/)
+    * 网址：[公网](http://kc110lsc.myqnapcloud.com:5001/cgi-bin/)，[内网](https://192.168.1.119:5001/cgi-bin/)
+    * 功能：TODO
 * [应用工具](https://www.qnap.com/zh-cn/utilities/essentials)：快捷访问 NAS
     * Qfinder Pro: 帮助您透过局域网络与 QNAP NAS 建立联机.。使用Windows 版本的「Storage Plug & Connect」功能，更可将 NAS 当作联机的网络驱动器或是虚拟磁盘。
 	* myQNAPcloud Connect: 专为 Windows 使用者设计。安装后，使用者便可安全快速地存取区网内的 QNAP NAS，并可于档案总管内以拖曳的方式轻松管理档案。
@@ -91,6 +92,19 @@
 1. 在显卡服务器旁的壁挂交换机上找到相同编号的网线，并拔下你的网线
 1. 依次松开捆绑了你的网线的绑扎带并分离出你的网线。如果是一次性绑扎带，用剪刀剪断并换上可松式绑扎带（到章程那儿领取）
 1. 完全（参考其他已分离的网线）分离出你的网线后，将网线插入上图交换机
+
+
+## 外网访问
+
+通过[访问](#访问)小节的外网链接，仅能访问管理界面，如需从外网访问服务器和挂载 NAS，可按如下说明配置 VPN（参考[How To Set Up A Qnap Nas As A VPN Server?](http://qnapsupport.net/how-to-set-up-a-qnap-nas-as-a-vpn-server/)）：
+* Windows：
+    1. 下载并安装 [OpenVPN](https://openvpn.net/community-downloads/)
+    1. 下载本 github 仓库目录下的 [kc110lsc.ovpn](kc110lsc.ovpn) 文件，打开文件按其中的说明自定义配置文件
+    1. 打开 OpenVPN，找到“导入配置文件”，选择下载的 .ovpn 文件
+    1. 点击连接，输入自己的用户名和密码并确认
+* Mac：TODO
+
+现在你应该可以像在教研室一样访问 NAS 和 GPU 了
 
 
 ## 管理员
