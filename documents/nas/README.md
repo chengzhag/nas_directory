@@ -36,7 +36,7 @@
     * 用户组：
         * administrators: 可管理 NAS 设置、用户权限等
         * managers, members: 可在管理页面访问允许的应用（如 Download Station）
-    * 网址：[公网](http://kc110lsc.myqnapcloud.com:5001/cgi-bin/)，[内网](https://192.168.1.119:5001/cgi-bin/)
+    * 网址：[公网](https://kc110lsc.myqnapcloud.cn:5001/cgi-bin/)，[内网](https://192.168.1.119:5001/cgi-bin/)
     * 功能：
         * Download Station：可以挂机下载 BT、HTTP、HTTPS、FTP、FTPS 文件
         * File Station：文件管理器，删除、移动、复制、解压等操作在这里进行可以比挂载后在终端上进行速度更快
