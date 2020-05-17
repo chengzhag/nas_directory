@@ -58,3 +58,16 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - monkaa__final_cleanpass: [Monkaa RGB images (finalpass)](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/Monkaa/raw_data/monkaa__frames_finalpass.tar)
     - monkaa__disparity: [Monkaa Disparity](https://lmb.informatik.uni-freiburg.de/data/SceneFlowDatasets_CVPR16/Release_april16/data/Monkaa/derived_data/monkaa__disparity.tar.bz2)
 - 上传者：章程
+
+## MIT Adobe5K
+- 主页：[The FiveK dataset](https://data.csail.mit.edu/graphics/fivek/)
+- 关键词：图像增强，HDR，image enhancement
+- 引用：[Bychkovsky, Vladimir, et al. "Learning photographic global tonal adjustment with a database of input/output image pairs." CVPR 2011. IEEE, 2011.](https://ieeexplore.ieee.org/abstract/document/5995413/)
+- 相关链接：
+    - [数据集主页](https://data.csail.mit.edu/graphics/fivek/): 有关如何引用数据集的信息，请参阅详细说明
+    - [机器感知Google 推出 HDR+ 连拍摄影数据集](https://zhuanlan.zhihu.com/p/34391353)
+- 说明：We collected 5,000 photographs taken with SLR cameras by a set of different photographers. They are all in RAW format; that is, all the information recorded by the camera sensor is preserved. We made sure that these photographs cover a broad range of scenes, subjects, and lighting conditions. We then hired five photography students in an art school to adjust the tone of the photos. Each of them retouched all the 5,000 photos using a software dedicated to photo adjustment (Adobe Lightroom) on which they were extensively trained. We asked the retouchers to achieve visually pleasing renditions, akin to a postcard. The retouchers were compensated for their work.
+- 目录：adobe5k
+    - raw_photos/HQ1to5000: 5000 .dng RAW image files.
+    - fivek_c: 5000 .tif RGB images well-touched by Expert C.  
+- 上传者：陈才
