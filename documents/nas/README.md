@@ -85,6 +85,9 @@
         * 系统自带Finder中 `前往 -> 连接服务器` 挂载到 `192.168.1.119:/Public` 或者 `192.168.1.119:/home/${USER}` 默认使用的是和Windows相同文件共享协议，也可以再设置为 `afp` 等
         * 也可用[Qfinder Pro](https://www.qnap.com/zh-cn/how-to/tutorial/article/%E5%B0%86%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8C%82%E8%BD%BD%E5%88%B0-mac-%E8%AE%A1%E7%AE%97%E6%9C%BA/)软件辅助挂载
     * **说明**: mac 和 windows 挂载可能第一次会遇到输入正确的用户名密码后无法连接，到管理员处重置一下密码即可
+* 快照：
+    * NAS 开启了每天快照，会自动在凌晨 1 点创建整盘快照，每个快照保存 5 天，可以从快照中恢复误删或误修改的文件
+    * 所有用户均可通过共享文件夹（NAS:/Public，NAS:/homes）根目录下的 @Recently-Snapshot 文件夹访问快照，可通过管理页面 File Station 或挂载两种方式
 
 
 ## 网络
