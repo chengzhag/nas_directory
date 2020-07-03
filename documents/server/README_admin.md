@@ -2,14 +2,15 @@
 
 
 ## 账号
-root 和 admin 账号与 NAS 的 admin 账号共用密码。
+* manager 用户为显卡服务器本地用户，有 sudoer 权限
+* 显卡服务器的 root、manager 账号和 NAS 的 admin 账号共用密码
 
 
 ## 重装
 1. 重装 ubuntu 16 系统
     * 系统语言设为英语
-    * 初始用户设为 manager
-    * 主机命名为 LSC-GPU{02d}（如 LSC-GPU01）
+    * 计算机名（computer name）为 LSC-GPU{n=01,02, ...}
+    * 名称（your name）为 manager，用户名（username）为 manager
 1. 将脚本 initserver.sh 复制到服务器并以 root 账户运行 ```bash initserver.sh```，运行结束后自动打开交互式界面（dpkg-reconfigure ldap-auth-config），手动设置以下参数（其他参数已通过脚本设置，按回车键跳过）：
     1. Does the LDAP database require login?： no
     1. LDAP root account password: 输入 NAS 上设置的 LDAP root 账户密码
