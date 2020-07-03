@@ -40,6 +40,7 @@
     * 功能：
         * Download Station：可以挂机下载 BT、HTTP、HTTPS、FTP、FTPS 文件
         * File Station：文件管理器，删除、移动、复制、解压等操作在这里进行可以比挂载后在终端上进行速度更快
+        * 更改密码：右上角的用户名-设置选项-修改密码（密码仅能在管理页面更改，不能在显卡服务器上通过 passwd 命令更改，否则会导致 SMB 挂载认证出错）
 * [应用工具](https://www.qnap.com/zh-cn/utilities/essentials)：快捷访问 NAS
     * Qfinder Pro: 帮助您透过局域网络与 QNAP NAS 建立联机.。使用Windows 版本的「Storage Plug & Connect」功能，更可将 NAS 当作联机的网络驱动器或是虚拟磁盘。
 	* myQNAPcloud Connect: 专为 Windows 使用者设计。安装后，使用者便可安全快速地存取区网内的 QNAP NAS，并可于档案总管内以拖曳的方式轻松管理档案。

@@ -79,7 +79,7 @@ echo "ldap-auth-config    ldap-auth-config/dblogin    boolean    false" >> debco
 echo "ldap-auth-config    ldap-auth-config/rootbinddn     string    $ROOT_DN" >> debconf-ldap-preseed.txt  
 echo "ldap-auth-config    ldap-auth-config/rootbindpw     password" >> debconf-ldap-preseed.txt  
 echo "ldap-auth-config    ldap-auth-config/override    boolean    true" >> debconf-ldap-preseed.txt  
-echo "ldap-auth-config    ldap-auth-config/pam_password     select    md5" >> debconf-ldap-preseed.txt  
+echo "ldap-auth-config    ldap-auth-config/pam_password     select    exop" >> debconf-ldap-preseed.txt  
 echo "nslcd   nslcd/ldap-uris string  ldap://$LDAP_SERVER_IP" >> debconf-ldap-preseed.txt  
 echo "nslcd   nslcd/ldap-base string  $BASE_DN" >> debconf-ldap-preseed.txt  
 cat debconf-ldap-preseed.txt | debconf-set-selections
