@@ -8,9 +8,9 @@
 * manager 用户在显卡服务器本地和 NAS 上各有一个，且设置相同的密码，在断网时也能登陆显卡服务器
 
 初始化：用户在拿到账号和初始密码后，按以下步骤初始化
-1. 在 [NAS 管理页面](https://192.168.1.119:5001/cgi-bin/) 登陆自己的账号
-1. 打开管理页面的文件管理器 File Station，将 NAS:/Public/documents/server/.profile 复制到 NAS:/home（如果没有显示该文件，在文件管理器的设置中勾选“显示NAS的隐藏文件”
-1. 用 ssh 登陆显卡服务器
+1. 在 [NAS 管理页面](https://192.168.1.119:5001/cgi-bin/) 登陆自己的账号，并修改初始密码
+1. 打开管理页面的文件管理器 File Station，将 NAS:/Public/documents/server/.profile 复制到 NAS:/home（如果没有显示该文件，在文件管理器的设置中勾选“显示NAS的隐藏文件”）
+1. 用 ssh 登陆显卡服务器，自动进入 anaconda 安装程序
 
 
 ## 管理员

@@ -3,9 +3,6 @@ cp /etc/skel/.bashrc /home/${USER}/.bashrc
 cp /etc/skel/.bash_logout /home/${USER}/.bash_logout
 cp /etc/skel/examples.desktop /home/${USER}/examples.desktop
 
-echo "更改用户密码"
-passwd
-
 echo "安装 anaconda"
 bash /media/Public/documents/server/app/Anaconda3-2019.10-Linux-x86_64.sh
 
