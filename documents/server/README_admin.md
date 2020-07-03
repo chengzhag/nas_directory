@@ -15,7 +15,6 @@
     1. Does the LDAP database require login?： no
     1. LDAP root account password: 输入 NAS 上设置的 LDAP root 账户密码
     1. Local crypt to use when changing passwords: exop
-1. 用 ```sudo teamviewer --passwd ***``` 设置 teamviewer 密码，用 ```sudo teamviewer --info print id ``` 查看 teamviewer ID
 1. 设置网络参数（也可通过 GUI 设置）
     1. 用 ifconfig 查询网卡的接口名称（如 enx245ebe4300d7）
     1. 编辑 /etc/network/interfaces，添加：

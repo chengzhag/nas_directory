@@ -101,12 +101,6 @@ sed -i 's/use_authtok//' /etc/pam.d/common-password
 #在交互界面中重新配置 LDAP root 密码
 dpkg-reconfigure ldap-auth-config
 
-#安装 teamviewer
-#https://community.teamviewer.com/t5/TeamViewer-Knowledge-Base-ZH/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85-Linux-%E7%89%88-TeamViewer/ta-p/33660
-apt install /media/Public/documents/server/app/teamviewer_amd64.deb
-#https://blog.csdn.net/phone15062117684/article/details/52739936
-#sudo teamviewer --passwd ***
-
 #安装威联通 USB 网卡 QNA-UC5G1T 驱动
 #https://www.qnap.com/en/product/qna-uc5g1t
 cd /media/Public/documents/server/app/AQ_USBDongle_LinuxDriver_1.3.3.0/fiji/Linux
