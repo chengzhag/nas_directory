@@ -9,6 +9,10 @@
 1. 用 ssh 登陆显卡服务器，自动进入 anaconda 安装程序
 
 
+## 问题
+- git clone 到 CPU:/home/{user} 报错“premature end of pack file”：由于 NFS 挂载的原因，目前还没有找到解决办法。可以暂时用 SMB 挂载到个人电脑进行 git clone
+
+
 ## 管理员
 
 * [显卡服务器管理员说明](README_admin.md)

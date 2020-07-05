@@ -46,7 +46,7 @@
 	* myQNAPcloud Connect: 专为 Windows 使用者设计。安装后，使用者便可安全快速地存取区网内的 QNAP NAS，并可于档案总管内以拖曳的方式轻松管理档案。
     * Qsync: 自动将档案同步至与 QNAP NAS相连的装置上。
 * 挂载：通过 NFS、SMB 等文件共享协议可以将 NAS 的 home 和 Public 文件夹挂载到个人电脑
-    * NFS: 面向 **Linux/Unix** 用户，显卡服务器采用此方式挂载，个人电脑也可使用此挂载方式
+    * NFS: 面向 **Linux/Unix** 用户，显卡服务器采用此方式挂载，个人电脑也可使用此挂载方式（目前 NFS 挂载存在配置麻烦、[无法使用 git clone 的问题](../server/README.md#问题)，建议采用 SMB 挂载）
         1. 本地新建用户和NAS用户配对：由于 NFS 本身的服务并没有进行身份登入的识别（[文件服务器之一：NFS服务器](http://cn.linux.vbird.org/linux_server/0330nfs.php)），因此挂载目录的权限会跟随个人电脑上登陆的用户 ID 和用户组 ID，所以要求先完成以下配置以解决读写权限问题: 
             1. 在任意一台服务器上登录自己的账户，并查看NAS认证用户的gid和uid，例如: 
                 ```

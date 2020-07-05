@@ -42,8 +42,8 @@ touch /etc/nfs-home.misc
 #https://blog.csdn.net/xinanrusu/article/details/70047422
 #https://zhuanlan.zhihu.com/p/78249819
 #http://notes.yuting.cc/home/nfsperformance
-echo "Public -fstype=nfs,auto,nofail,noatime,nodiratime,nolock,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144,fsc 192.168.1.119:/Public" >> /etc/nfs-public.misc
-echo "* -fstype=nfs,auto,nofail,noatime,nodiratime,nolock,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144,fsc 192.168.1.119:/homes/&" >> /etc/nfs-home.misc
+echo "Public -fstype=nfs,auto,nofail,noatime,nodiratime,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144,fsc 192.168.1.119:/Public" >> /etc/nfs-public.misc
+echo "* -fstype=nfs,auto,nofail,noatime,nodiratime,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144,fsc 192.168.1.119:/homes/&" >> /etc/nfs-home.misc
 systemctl start autofs
 systemctl enable autofs
 #设置内核参数
