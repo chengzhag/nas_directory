@@ -101,6 +101,7 @@ sed -i 's/use_authtok//' /etc/pam.d/common-password
 #在交互界面中重新配置 LDAP root 密码
 dpkg-reconfigure ldap-auth-config
 
+
 #安装威联通 USB 网卡 QNA-UC5G1T 驱动
 #https://www.qnap.com/en/product/qna-uc5g1t
 cd /media/Public/documents/server/app/AQ_USBDongle_LinuxDriver_1.3.3.0/fiji/Linux
@@ -115,3 +116,17 @@ rmmod cdc_ether
 touch /etc/modprobe.d/blacklist-usbnet.conf
 echo "blacklist cdc_ether" >> /etc/modprobe.d/blacklist-usbnet.conf
 cd ~
+
+
+#安装 netdata
+curl -s https://packagecloud.io/install/repositories/netdata/netdata/script.deb.sh | sudo bash
+apt -y --force-yes install netdata
+touch /etc/netdata/python.d.conf
+echo "nvidia_smi: yes" >> /etc/netdata/python.d.conf
+echo "" >> /etc/netdata/netdata.conf
+echo "[plugins]" >> /etc/netdata/netdata.conf
+echo "    python.d = yes" >> /etc/netdata/netdata.conf
+sed -i "s/bind to = localhost/bind to = */g" /etc/netdata/netdata.conf
+service netdata restart
+netdata
+netdata-claim.sh -token=cT9vgrp4Dl3lw4nd5raJA7s9b8dqhwbrunbhOGvqM_9FafBrnRJG8wggandPMpJ-lzCvIJkdDtD6an-djbKBcva1kP9SBXJY22b4WHL7kqg-SxlDegHHnMpc7i6yDXATCM07a-Y -rooms=c2780e5b-1822-4be6-b209-46c1353c1ff4 -url=https://app.netdata.cloud
