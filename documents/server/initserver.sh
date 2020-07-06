@@ -127,6 +127,6 @@ echo "" >> /etc/netdata/netdata.conf
 echo "[plugins]" >> /etc/netdata/netdata.conf
 echo "    python.d = yes" >> /etc/netdata/netdata.conf
 sed -i "s/bind to = localhost/bind to = */g" /etc/netdata/netdata.conf
-service netdata restart
-netdata
 netdata-claim.sh -token=cT9vgrp4Dl3lw4nd5raJA7s9b8dqhwbrunbhOGvqM_9FafBrnRJG8wggandPMpJ-lzCvIJkdDtD6an-djbKBcva1kP9SBXJY22b4WHL7kqg-SxlDegHHnMpc7i6yDXATCM07a-Y -rooms=c2780e5b-1822-4be6-b209-46c1353c1ff4 -url=https://app.netdata.cloud
+service netdata restart
+systemctl enable netdata
