@@ -6,8 +6,8 @@
 * 显卡服务器的 root、manager 账号和 NAS 的 admin 账号共用密码
 
 
-## 重装
-1. 重装 ubuntu 16 系统
+## 新装
+1. 安装 ubuntu 16 系统
     * 系统语言设为英语
     * 计算机名（computer name）为 LSC-GPU{n=01,02, ...}
     * 名称（your name）为 manager，用户名（username）为 manager
@@ -15,20 +15,16 @@
     1. Does the LDAP database require login?： no
     1. LDAP root account password: 输入 NAS 上设置的 LDAP root 账户密码
     1. Local crypt to use when changing passwords: exop
-1. 设置网络参数（也可通过 GUI 设置）
-    1. 用 ifconfig 查询网卡的接口名称（如 enx245ebe4300d7）
-    1. 编辑 /etc/network/interfaces，添加：
-        ```
-        auto {接口名称}
-        iface {接口名称} inet static
-        address 192.168.1.{自定义的 IP}
-        netmask 255.255.255.0
-        gateway 192.168.1.{路由器 IP}
-        dns-nameserver 192.168.1.{路由器 IP}
-        mtu 9000
-        ```
-    1. 重启网络：```sudo /etc/init.d/networking restart```
-    1. 在 NAS 管理页面设置 NFS 挂载权限（[NAS 管理员说明](../nas/README_admin.md)）
+1. 通过 GUI 设置网络参数
+    1. 通过 GUI 登录 ubuntu 桌面，点击右上角网络图标 - Connection Information，查看当前网络 IP
+    1. 点击右上角网络图标 - Edit Connetctions，选择当前网络 - Edit
+    1. 点击 IPv4 Settings 选项卡，按如下设置
+        * Method: Manual
+        * Addresses - Add: Address 填写上面查到的 IP，Netmask 24，Gateway 填写路由器 IP（192.168.1.2）
+        * DNS Server: 填写路由器 IP（192.168.1.2）
+    1. 点击 Save 保存设置
+    1. 重置网络连接：点击右上角网络图标 - 单击当前网络名称
+1. 在 NAS 管理页面设置 NFS 挂载权限（[NAS 管理员说明 - 管理 - 新增显卡服务器](../nas/README_admin.md#管理)）
 1. 安装显卡驱动、cuda、cudnn
     1. Nividia 驱动安装（升级一样）
         ```
