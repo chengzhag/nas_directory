@@ -1,8 +1,27 @@
+# 设置源
+mv /etc/apt/sources.list /etc/apt/sources.list_backup
+touch /etc/apt/sources.list
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse" > /etc/apt/sources.list
 apt update
+apt upgrade
+
+
+# #安装并固定内核
+# apt install linux-modules-4.15.0-107-generic
+# apt-mark hold linux-image-generic linux-headers-generic
 
 
 #安装必备包
-apt -y --force-yes install openssh-server exfat-utils ethtool net-tools gcc make screen git
+apt -y --force-yes install openssh-server exfat-utils ethtool net-tools gcc make screen git iperf3
 
 
 #删除已有的 swap 文件，设置新的 swap 文件，启动时挂载已设置
@@ -17,33 +36,33 @@ echo "/swapfile none swap sw 0 0" >> /etc/fstab
 
 
 #配置 NAS 挂载
-#设置 nfs 缓存
-#https://blog.frehi.be/2019/01/03/fs-cache-for-nfs-clients/
-apt -y --force-yes install cachefilesd
-mkdir /var/cache/fscache
-echo "RUN=yes" >> /etc/default/cachefilesd
-#https://linux.die.net/man/5/cachefilesd.conf
-sed -i "s/10%/30%/g" /etc/cachefilesd.conf
-sed -i "s/7%/25%/g" /etc/cachefilesd.conf
-sed -i "s/3%/20%/g" /etc/cachefilesd.conf
-systemctl start cachefilesd
-#设置 tmpfiles.d 定期删除 /tmp 下的文件
-touch /etc/tmpfiles.d/tmp.conf
-echo "d /tmp/ - - - 1w" >> /etc/tmpfiles.d/tmp.conf
-systemctl start systemd-tmpfiles-clean
+# #设置 nfs 缓存
+# #https://blog.frehi.be/2019/01/03/fs-cache-for-nfs-clients/
+# apt -y --force-yes install cachefilesd
+# mkdir /var/cache/fscache
+# echo "RUN=yes" >> /etc/default/cachefilesd
+# #https://linux.die.net/man/5/cachefilesd.conf
+# sed -i "s/10%/30%/g" /etc/cachefilesd.conf
+# sed -i "s/7%/25%/g" /etc/cachefilesd.conf
+# sed -i "s/3%/20%/g" /etc/cachefilesd.conf
+# systemctl start cachefilesd
+# #设置 tmpfiles.d 定期删除 /tmp 下的文件
+# touch /etc/tmpfiles.d/tmp.conf
+# echo "d /tmp/ - - - 1w" > /etc/tmpfiles.d/tmp.conf
+# systemctl start systemd-tmpfiles-clean
 #安装 nfs 依赖库，设置自动挂载 Public、home 文件夹
 #https://www.jianshu.com/p/bedce559a0be
 #https://linux.die.net/man/5/autofs
 apt -y --force-yes install nfs-common autofs
-echo "/media /etc/nfs-public.misc" >> /etc/auto.master
-echo "/home /etc/nfs-home.misc" >> /etc/auto.master
 touch /etc/nfs-public.misc
 touch /etc/nfs-home.misc
 #https://blog.csdn.net/xinanrusu/article/details/70047422
 #https://zhuanlan.zhihu.com/p/78249819
 #http://notes.yuting.cc/home/nfsperformance
-echo "Public -fstype=nfs,auto,nofail,noatime,nodiratime,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144,fsc 192.168.1.119:/Public" >> /etc/nfs-public.misc
-echo "* -fstype=nfs,auto,nofail,noatime,nodiratime,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144,fsc 192.168.1.119:/homes/&" >> /etc/nfs-home.misc
+echo "Public -fstype=nfs,auto,nofail,noatime,nodiratime,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144 192.168.1.119:/Public" > /etc/nfs-public.misc
+echo "* -fstype=nfs,auto,nofail,noatime,nodiratime,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144 192.168.1.119:/homes/&" > /etc/nfs-home.misc
+echo "/media /etc/nfs-public.misc" >> /etc/auto.master
+echo "/home /etc/nfs-home.misc" >> /etc/auto.master
 systemctl start autofs
 systemctl enable autofs
 #设置内核参数
@@ -59,8 +78,8 @@ sysctl -p
 #修改用户组 sudoer 权限
 #https://segmentfault.com/a/1190000007394449
 touch /etc/sudoers.d/members
-echo "Cmnd_Alias APT_CMD=/usr/bin/apt,/usr/bin/apt-get,!/usr/bin/apt remove,!/usr/bin/apt autoremove,!/usr/bin/apt-get remove,!/usr/bin/apt-get purge,!/usr/bin/apt-get autoremove" >> /etc/sudoers.d/members
-echo "%members ALL=APT_CMD" >> /etc/sudoers.d/members
+echo "Cmnd_Alias ALLOW_APT_CMD=/usr/bin/apt,/usr/bin/apt-get,!/usr/bin/apt remove,!/usr/bin/apt autoremove,!/usr/bin/apt-get remove,!/usr/bin/apt-get purge,!/usr/bin/apt-get autoremove" >> /etc/sudoers.d/members
+echo "%members ALL=ALLOW_APT_CMD" >> /etc/sudoers.d/members
 
 
 #安装 ldap 依赖库，配置 ldap 服务
@@ -70,22 +89,22 @@ BASE_DN='dc=kc110lsc,dc=local'
 ROOT_DN='cn=admin,dc=kc110lsc,dc=local'
 #创建preseed文件-软件安装自应答  
 touch debconf-ldap-preseed.txt
-echo "ldap-auth-config    ldap-auth-config/move-to-debconf     boolean    true" >> debconf-ldap-preseed.txt  
-echo "ldap-auth-config    ldap-auth-config/ldapns/ldap-server    string    ldap://$LDAP_SERVER_IP" >> debconf-ldap-preseed.txt  
-echo "ldap-auth-config    ldap-auth-config/ldapns/base-dn    string    $BASE_DN" >> debconf-ldap-preseed.txt  
-echo "ldap-auth-config    ldap-auth-config/ldapns/ldap_version    select    3" >> debconf-ldap-preseed.txt  
-echo "ldap-auth-config    ldap-auth-config/dbrootlogin    boolean    true" >> debconf-ldap-preseed.txt  
-echo "ldap-auth-config    ldap-auth-config/dblogin    boolean    false" >> debconf-ldap-preseed.txt  
-echo "ldap-auth-config    ldap-auth-config/rootbinddn     string    $ROOT_DN" >> debconf-ldap-preseed.txt  
-echo "ldap-auth-config    ldap-auth-config/rootbindpw     password" >> debconf-ldap-preseed.txt  
-echo "ldap-auth-config    ldap-auth-config/override    boolean    true" >> debconf-ldap-preseed.txt  
-echo "ldap-auth-config    ldap-auth-config/pam_password     select    exop" >> debconf-ldap-preseed.txt  
-echo "nslcd   nslcd/ldap-uris string  ldap://$LDAP_SERVER_IP" >> debconf-ldap-preseed.txt  
-echo "nslcd   nslcd/ldap-base string  $BASE_DN" >> debconf-ldap-preseed.txt  
+echo "ldap-auth-config    ldap-auth-config/move-to-debconf     boolean    true
+ldap-auth-config    ldap-auth-config/ldapns/ldap-server    string    ldap://$LDAP_SERVER_IP
+ldap-auth-config    ldap-auth-config/ldapns/base-dn    string    $BASE_DN
+ldap-auth-config    ldap-auth-config/ldapns/ldap_version    select    3
+ldap-auth-config    ldap-auth-config/dbrootlogin    boolean    true
+ldap-auth-config    ldap-auth-config/dblogin    boolean    false
+ldap-auth-config    ldap-auth-config/rootbinddn     string    $ROOT_DN
+ldap-auth-config    ldap-auth-config/rootbindpw     password
+ldap-auth-config    ldap-auth-config/override    boolean    true
+ldap-auth-config    ldap-auth-config/pam_password     select    exop
+nslcd   nslcd/ldap-uris string  ldap://$LDAP_SERVER_IP
+nslcd   nslcd/ldap-base string  $BASE_DN" >> debconf-ldap-preseed.txt  
 cat debconf-ldap-preseed.txt | debconf-set-selections
 rm debconf-ldap-preseed.txt
-/etc/ldap.secret
-#安装ldap client相关软件  
+#安装ldap client相关软件
+apt -y --force-yes install libldap-2.4-2=2.4.45+dfsg-1ubuntu1
 apt -y --force-yes install ldap-utils libpam-ldap libnss-ldap nslcd
 #认证方式中添加ldap  
 auth-client-config -t nss -p lac_ldap
@@ -102,31 +121,31 @@ sed -i 's/use_authtok//' /etc/pam.d/common-password
 dpkg-reconfigure ldap-auth-config
 
 
-#安装威联通 USB 网卡 QNA-UC5G1T 驱动
-#https://www.qnap.com/en/product/qna-uc5g1t
-cd /media/Public/documents/server/app/AQ_USBDongle_LinuxDriver_1.3.3.0/fiji/Linux
-make clean
-make
-#https://gadgetrip.jp/2019/09/review_qnap_qna_uc5g1t/
-make install
-#从内核中删除系统自带的 cdc_ether 模块，并将其加入黑名单
-#https://gadgetrip.jp/2019/09/review_qnap_qna_uc5g1t/
-rmmod cdc_ether
-#http://einverne.github.io/post/2018/09/modprobe.html
-touch /etc/modprobe.d/blacklist-usbnet.conf
-echo "blacklist cdc_ether" >> /etc/modprobe.d/blacklist-usbnet.conf
-cd ~
+# #安装威联通 USB 网卡 QNA-UC5G1T 驱动
+# #https://www.qnap.com/en/product/qna-uc5g1t
+# cd /media/Public/documents/server/app/AQ_USBDongle_LinuxDriver_1.3.3.0/fiji/Linux
+# make clean
+# make
+# #https://gadgetrip.jp/2019/09/review_qnap_qna_uc5g1t/
+# make install
+# #从内核中删除系统自带的 cdc_ether 模块，并将其加入黑名单
+# #https://gadgetrip.jp/2019/09/review_qnap_qna_uc5g1t/
+# rmmod cdc_ether
+# #http://einverne.github.io/post/2018/09/modprobe.html
+# touch /etc/modprobe.d/blacklist-usbnet.conf
+# echo "blacklist cdc_ether" > /etc/modprobe.d/blacklist-usbnet.conf
+# cd ~
 
 
 #安装 netdata
 curl -s https://packagecloud.io/install/repositories/netdata/netdata/script.deb.sh | sudo bash
 apt -y --force-yes install netdata
+#配置显卡监控
 touch /etc/netdata/python.d.conf
 echo "nvidia_smi: yes" >> /etc/netdata/python.d.conf
 echo "" >> /etc/netdata/netdata.conf
 echo "[plugins]" >> /etc/netdata/netdata.conf
 echo "    python.d = yes" >> /etc/netdata/netdata.conf
-sed -i "s/bind to = localhost/bind to = */g" /etc/netdata/netdata.conf
-netdata-claim.sh -token=cT9vgrp4Dl3lw4nd5raJA7s9b8dqhwbrunbhOGvqM_9FafBrnRJG8wggandPMpJ-lzCvIJkdDtD6an-djbKBcva1kP9SBXJY22b4WHL7kqg-SxlDegHHnMpc7i6yDXATCM07a-Y -rooms=c2780e5b-1822-4be6-b209-46c1353c1ff4 -url=https://app.netdata.cloud
 service netdata restart
 systemctl enable netdata
+#claim：登录到 https://app.netdata.cloud/spaces/kc110lsc/rooms/gpu 查看 claim 命令

@@ -7,7 +7,7 @@
 
 
 ## 新装
-1. 安装 ubuntu 16 系统
+1. 安装 ubuntu 18 系统
     * 系统语言设为英语
     * 计算机名（computer name）为 LSC-GPU{n=01,02, ...}
     * 名称（your name）为 manager，用户名（username）为 manager
