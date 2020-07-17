@@ -32,9 +32,10 @@ else
 fi
 
 # https://unix.stackexchange.com/questions/317652/running-program-in-profile-prevents-gui-startx
+# 在此设置自己的 shell
+export SHELL=/bin/bash
 if test -t 0 -a -t 1
 then
-    # 在此设置自己的 shell
-    export SHELL=/bin/bash 
-    exec /bin/bash
+    exec $SHELL
 fi
+
