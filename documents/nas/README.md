@@ -45,47 +45,19 @@
     * Qfinder Pro: 帮助您透过局域网络与 QNAP NAS 建立联机.。使用Windows 版本的「Storage Plug & Connect」功能，更可将 NAS 当作联机的网络驱动器或是虚拟磁盘。
 	* myQNAPcloud Connect: 专为 Windows 使用者设计。安装后，使用者便可安全快速地存取区网内的 QNAP NAS，并可于档案总管内以拖曳的方式轻松管理档案。
     * Qsync: 自动将档案同步至与 QNAP NAS相连的装置上。
-* 挂载：通过 NFS、SMB 等文件共享协议可以将 NAS 的 home 和 Public 文件夹挂载到个人电脑
-    * NFS: 面向 **Linux/Unix** 用户，显卡服务器采用此方式挂载，个人电脑也可使用此挂载方式（目前 NFS 挂载存在配置麻烦、[无法使用 git clone 的问题](../server/README.md#问题)，建议采用 SMB 挂载）
-        1. 本地新建用户和NAS用户配对：由于 NFS 本身的服务并没有进行身份登入的识别（[文件服务器之一：NFS服务器](http://cn.linux.vbird.org/linux_server/0330nfs.php)），因此挂载目录的权限会跟随个人电脑上登陆的用户 ID 和用户组 ID，所以要求先完成以下配置以解决读写权限问题: 
-            1. 在任意一台服务器上登录自己的账户，并查看NAS认证用户的gid和uid，例如: 
-                ```
-                chencai@LSC-GPU03:~$ id chencai
-                uid=1000004(chencai) gid=1000000(Domain Users) groups=1000000(Domain Users),1000001(managers),1000002(members)
-                ```
-            1. 本地新建配对用户组（必须与NAS认证用户的gid一致，name可以随便取）:
-                ```
-                sudo groupadd -g ${gid} ${groupname}
-                ``` 
-            2. 本地新建配对用户（必须与NAS认证用户的uid、gid一致，name可以随便取）:
-                ```
-                sudo useradd -m -u ${uid} -g ${gid} ${username}
-                ```
-            1. 安装必要软件：
-                ```
-                sudo apt install nfs-common
-                ```
-        1. 挂载 NFS：[如何在Ubuntu 18.04上设置NFS挂载](https://www.howtoing.com/how-to-set-up-an-nfs-mount-on-ubuntu-18-04)
-            1. 挂载 Public 文件夹：
-                ```
-                mkdir /media/Public
-                sudo mount 192.168.1.119:/Public /media/Public
-                ```
-            1. 挂载 home 文件夹：
-                ```
-                sudo mount 192.168.1.119:/homes/${USER} {指定挂载目标路径}
-                ```
-            1. 如需卸载：
-                ```
-                sudo umount /media/Public
-                ```
-    * SMB：CIFS, **Windows** 文件共享协议
+* 挂载：通过 SMB 文件共享协议可以将 NAS 的 home 和 Public 文件夹挂载到个人电脑
+    * Windows：
         * [通过smb协议将服务器上的目录挂载至本地目录](https://www.qiansw.com/through-the-smb-protocol-on-the-server-directory-to-mount-a-local-directory.html)
         * 说明：也可以通过 Qfinder Pro 挂载
-    * SMB：CIFS，**MAC** 文件共享协议
+    * MAC：
         * 系统自带Finder中 `前往 -> 连接服务器` 挂载到 `192.168.1.119:/Public` 或者 `192.168.1.119:/home/${USER}` 默认使用的是和Windows相同文件共享协议，也可以再设置为 `afp` 等
         * 也可用[Qfinder Pro](https://www.qnap.com/zh-cn/how-to/tutorial/article/%E5%B0%86%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8C%82%E8%BD%BD%E5%88%B0-mac-%E8%AE%A1%E7%AE%97%E6%9C%BA/)软件辅助挂载
-    * **说明**: mac 和 windows 挂载可能第一次会遇到输入正确的用户名密码后无法连接，到管理员处重置一下密码即可
+    * Linux：
+        * UI 界面挂载：以 Ubuntu 18 为例，可以在文件管理器左侧菜单栏点击“Other Locations”从自动发现的网络主机列表中选择“kc110lsc”（或在“Connect to Server”后填入 NAS IP），输入用户名和密码后即可访问共享文件夹，右键所需文件夹“Mount”即可挂载
+        * [将SMB/CIFS网络硬盘永久的挂载到Ubuntu上](https://www.jianshu.com/p/4ec8ad9b9820)
+    * **说明**: 20200703
+        * 之前通过 passwd 命令修改密码后发现 SMB 挂载登录失败或 NAS 管理页面可以登录但无法修改密码的，可以在显卡服务器上先用 passwd 临时改一下密码，再在 NAS 管理页面将密码改为想要的密码，就可以正常登录了
+        * 今后密码仅能在 [NAS 管理页面](https://192.168.1.119:5001/cgi-bin/) 更改，不能在显卡服务器上通过 passwd 命令更改，否则会导致 SMB 挂载认证出错
 * 快照：
     * NAS 开启了每天快照，会自动在凌晨 1 点创建整盘快照，每个快照保存 5 天，可以从快照中恢复误删或误修改的文件
     * 所有用户均可通过共享文件夹（NAS:/Public，NAS:/homes）根目录下的 @Recently-Snapshot 文件夹访问快照，可通过管理页面 File Station 或挂载两种方式

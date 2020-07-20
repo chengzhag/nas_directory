@@ -36,7 +36,7 @@ admin 账号拥有最高权限，与显卡服务器的 root、admin 账号共用
 
 * [NAS 使用说明](README.md)：了解基础的管理页面和应用工具
 * 挂载服务端设置：
-    * NFS: 面向linux/unix用户
+    * NFS: 显卡服务器采用此方式挂载（目前 NFS 挂载存在配置麻烦、[无法使用 git clone 的问题](../server/README.md#问题)）
         * [透过Linux NFS 储存服务，使用QNAP 企业级储存设备](https://www.qnap.com/zh-hk/how-to/tutorial/article/透過-linux-nfs-儲存服務使用-qnap-企業級儲存設備/)
         * [文件服务器之一：NFS服务器](http://cn.linux.vbird.org/linux_server/0330nfs.php)
     * SMB: CIFS, Windows文件共享协议
