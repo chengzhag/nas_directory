@@ -71,3 +71,29 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - raw_photos/HQ1to5000: 5000 .dng RAW image files.
     - fivek_c: 5000 .tif RGB images well-touched by Expert C.  
 - 上传者：陈才
+
+## ShapeNet
+- 主页：[ShapeNet](https://www.shapenet.org/)
+- 关键词：3D semantic/instance segmentation，3D representation, 3D scene understanding, 3D scene parsing
+- 引用：[ShapeNet: An Information-Rich 3D Model Repository](https://arxiv.org/pdf/1512.03012)
+- 相关链接：
+    - [点云深度学习之数据集处理（二）ShapeNet简介及认识](https://blog.csdn.net/SGL_LGS/article/details/105897585)
+    - [下载页面](https://www.shapenet.org/account)：注册后下载数据、查看各子数据集说明
+- 说明：
+    - What is ShapeNet?
+        - ShapeNet is an ongoing effort to establish a richly-annotated, large-scale dataset of 3D shapes.
+        - We provide researchers around the world with this data to enable research in computer graphics, computer vision, robotics, and other related disciplines. ShapeNet is a collaborative effort between researchers at Princeton, Stanford and TTIC.
+        ShapeNet is organized according to the WordNet hierarchy.
+        - Each meaningful concept in WordNet, possibly described by multiple words or word phrases, is called a "synonym set" or "synset". There are more than 100,000 synsets in WordNet, the majority of them being nouns (80,000+)
+    - ShapeNet is made of several different subsets:
+        - ShapeNetCore
+            - ShapeNetCore is a subset of the full ShapeNet dataset with single clean 3D models and manually verified category
+            - and alignment annotations. It covers 55 common object categories with about 51,300 unique 3D models. The 12 object categories of PASCAL 3D+, a popular computer vision 3D benchmark dataset, are all covered by ShapeNetCore.
+        - ShapeNetSem
+            - ShapeNetSem is a smaller, more densely annotated subset consisting of 12,000 models spread over a broader set of
+            - 270 categories. In addition to manually verified category labels and consistent alignments, these models are annotated with real-world dimensions, estimates of their material composition at the category level, and estimates of their total volume and weight.
+- 目录：ShapeNet
+    - ShapeNetCore.v1: [Archive of ShapeNetCore v1 release](http://shapenet.cs.stanford.edu/shapenet/obj-zip/ShapeNetCore.v1.zip) (ShapeNetCore.v1.zip ~25GB), [README.txt](https://shapenet.cs.stanford.edu/shapenet/obj-zip/ShapeNetCore.v1/README.txt)
+    - ShapeNetCore.v2（未解压）: [Archive of ShapeNetCore v2 release](http://shapenet.cs.stanford.edu/shapenet/obj-zip/ShapeNetCore.v2.zip) (ShapeNetCore.v2.zip ~30.3GB), [README.txt](https://www.shapenet.org/resources/releases/shapenetcorev2/README.txt)
+    - all.csv: [Training, validation and test splits for SHREC16 amd SHREC17 in CSV format](http://shapenet.cs.stanford.edu/shapenet/obj-zip/SHREC16/all.csv)
+- 上传者：章程
