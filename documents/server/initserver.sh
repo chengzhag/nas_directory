@@ -46,10 +46,10 @@ echo "/swapfile none swap sw 0 0" >> /etc/fstab
 # sed -i "s/7%/25%/g" /etc/cachefilesd.conf
 # sed -i "s/3%/20%/g" /etc/cachefilesd.conf
 # systemctl start cachefilesd
-# #设置 tmpfiles.d 定期删除 /tmp 下的文件
-# touch /etc/tmpfiles.d/tmp.conf
-# echo "d /tmp/ - - - 1w" > /etc/tmpfiles.d/tmp.conf
-# systemctl start systemd-tmpfiles-clean
+#设置 tmpfiles.d 定期删除 /tmp 下的文件
+touch /etc/tmpfiles.d/tmp.conf
+echo "d /tmp/ - - - 1w" > /etc/tmpfiles.d/tmp.conf
+systemctl start systemd-tmpfiles-clean
 #安装 nfs 依赖库，设置自动挂载 Public、home 文件夹
 #https://www.jianshu.com/p/bedce559a0be
 #https://linux.die.net/man/5/autofs
