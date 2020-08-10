@@ -55,6 +55,7 @@
     * Linux：
         * UI 界面挂载：以 Ubuntu 18 为例，可以在文件管理器左侧菜单栏点击“Other Locations”从自动发现的网络主机列表中选择“kc110lsc”（或在“Connect to Server”后填入 NAS IP），输入用户名和密码后即可访问共享文件夹，右键所需文件夹“Mount”即可挂载
         * [将SMB/CIFS网络硬盘永久的挂载到Ubuntu上](https://www.jianshu.com/p/4ec8ad9b9820)
+		* CIFS永久挂载补充说明：需要在指定passwd之后，再指定 gid=local username，uid=local username，否则会默认都属于root组，自己无法编辑挂载后的文件
     * **说明**: 20200703
         * 之前通过 passwd 命令修改密码后发现 SMB 挂载登录失败或 NAS 管理页面可以登录但无法修改密码的，可以在显卡服务器上先用 passwd 临时改一下密码，再在 NAS 管理页面将密码改为想要的密码，就可以正常登录了
         * 今后密码仅能在 [NAS 管理页面](https://192.168.1.119:5001/cgi-bin/) 更改，不能在显卡服务器上通过 passwd 命令更改，否则会导致 SMB 挂载认证出错
