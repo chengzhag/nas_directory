@@ -97,3 +97,23 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - ShapeNetCore.v2（未解压）: [Archive of ShapeNetCore v2 release](http://shapenet.cs.stanford.edu/shapenet/obj-zip/ShapeNetCore.v2.zip) (ShapeNetCore.v2.zip ~30.3GB), [README.txt](https://www.shapenet.org/resources/releases/shapenetcorev2/README.txt)
     - all.csv: [Training, validation and test splits for SHREC16 amd SHREC17 in CSV format](http://shapenet.cs.stanford.edu/shapenet/obj-zip/SHREC16/all.csv)
 - 上传者：章程
+
+## SID
+- 主页：[Learning-to-see-in-the-dark dataset](http://cchen156.github.io/SID.html)
+- 关键词：低光照图像去噪，Raw image processing
+- 引用：[Chen, Chen et al. “Learning to See in the Dark.” 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition (2018)](http://xxx.itp.ac.cn/pdf/1805.01934.pdf)
+- 相关链接：
+    - [Github](https://github.com/cchen156/Learning-to-See-in-the-Dark): 有关如何引用数据集的信息，请参阅详细说明
+- 说明：Imaging in low light is challenging due to low photon count and low SNR. Short-exposure images suffer from noise, while long exposure can lead to blurry images and is often impractical. A variety of denoising, deblurring, and enhancement techniques have been proposed, but their effectiveness is limited in extreme conditions, such as video-rate imaging at night. To support the development of learning-based pipelines for low-light image processing, we introduce a dataset of raw short-exposure night-time images, with corresponding long-exposure reference images. Using the presented dataset, we develop a pipeline for processing low-light images, based on end-to-end training of a fully-convolutional network. The network operates directly on raw sensor data and replaces much of the traditional image processing pipeline, which tends to perform poorly on such data. We report promising results on the new dataset, analyze factors that affect performance, and highlight opportunities for future work
+- 目录：SID/Sony (The Fuji subset is not downloaded currently)
+- 上传者：陈才
+
+## Zrr
+- 主页：[Zurich RAW to RGB mapping dataset](http://people.ee.ethz.ch/~ihnatova/pynet.html)
+- 关键词：Raw图像处理，图像增强，ISP pipeline
+- 引用：[Replacing Mobile Camera ISP with a Single Deep Learning Model](http://xxx.itp.ac.cn/pdf/2002.05509.pdf)
+- 相关链接：
+    - [Github](https://github.com/aiff22/PyNET): 有关如何引用数据集的信息，请参阅详细说明
+- 说明：The dataset consists of 3640 bursts (made up of 28461 images in total), organized into subfolders, plus the results of our image processing pipeline. Each burst consists of the raw burst input (in DNG format) and certain metadata not present in the images, as sidecar files. For results, we provide both the intermediate result of aligning and merging the frames (also in DNG format), and the final result of our pipeline (as a JPG).
+- 目录：zrr
+- 上传者：陈才
