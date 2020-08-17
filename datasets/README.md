@@ -117,3 +117,14 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
 - 说明：The dataset consists of 3640 bursts (made up of 28461 images in total), organized into subfolders, plus the results of our image processing pipeline. Each burst consists of the raw burst input (in DNG format) and certain metadata not present in the images, as sidecar files. For results, we provide both the intermediate result of aligning and merging the frames (also in DNG format), and the final result of our pipeline (as a JPG).
 - 目录：zrr
 - 上传者：陈才
+
+## KITTI
+- 主页：[KITTI dataset](http://www.cvlibs.net/datasets/kitti/)
+- 关键词：自动驾驶，深度估计，立体匹配，光流估计，3D检测分割
+- 相关链接：
+    - [Github](https://github.com/aiff22/PyNET): 有关如何引用数据集的信息，请参阅详细说明
+- 说明：目前下载了 depth、stereo、optical flow、scene flow 几种数据，还有各种任务的 tools
+- 目录：kitti/rvc_devkit/
+    - depth
+    - stereo
+- 上传者：陈才
