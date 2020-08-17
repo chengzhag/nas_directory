@@ -121,9 +121,7 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
 ## KITTI
 - 主页：[KITTI dataset](http://www.cvlibs.net/datasets/kitti/)
 - 关键词：自动驾驶，深度估计，立体匹配，光流估计，3D检测分割
-- 相关链接：
-    - [Github](https://github.com/aiff22/PyNET): 有关如何引用数据集的信息，请参阅详细说明
-- 说明：目前下载了 depth、stereo、optical flow、scene flow 几种数据，还有各种任务的 tools
+- 说明：目前下载了 depth、stereo、optical flow、scene flow 几种数据，还有各种任务的 tools。有关如何引用数据集的信息，请参阅详细主页
 - 目录：kitti/rvc_devkit/
     - depth
     - stereo
