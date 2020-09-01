@@ -36,16 +36,16 @@ echo "/swapfile none swap sw 0 0" >> /etc/fstab
 
 
 #配置 NAS 挂载
-# #设置 nfs 缓存
-# #https://blog.frehi.be/2019/01/03/fs-cache-for-nfs-clients/
-# apt -y --force-yes install cachefilesd
-# mkdir /var/cache/fscache
-# echo "RUN=yes" >> /etc/default/cachefilesd
-# #https://linux.die.net/man/5/cachefilesd.conf
-# sed -i "s/10%/30%/g" /etc/cachefilesd.conf
-# sed -i "s/7%/25%/g" /etc/cachefilesd.conf
-# sed -i "s/3%/20%/g" /etc/cachefilesd.conf
-# systemctl start cachefilesd
+#设置 nfs 缓存
+#https://blog.frehi.be/2019/01/03/fs-cache-for-nfs-clients/
+apt -y --force-yes install cachefilesd
+mkdir /var/cache/fscache
+echo "RUN=yes" >> /etc/default/cachefilesd
+#https://linux.die.net/man/5/cachefilesd.conf
+sed -i "s/10%/30%/g" /etc/cachefilesd.conf
+sed -i "s/7%/25%/g" /etc/cachefilesd.conf
+sed -i "s/3%/20%/g" /etc/cachefilesd.conf
+systemctl start cachefilesd
 #设置 tmpfiles.d 定期删除 /tmp 下的文件
 touch /etc/tmpfiles.d/tmp.conf
 echo "d /tmp/ - - - 1w" > /etc/tmpfiles.d/tmp.conf
@@ -59,8 +59,8 @@ touch /etc/nfs-home.misc
 #https://blog.csdn.net/xinanrusu/article/details/70047422
 #https://zhuanlan.zhihu.com/p/78249819
 #http://notes.yuting.cc/home/nfsperformance
-echo "Public -fstype=nfs,auto,nofail,noatime,nodiratime,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144 192.168.1.119:/Public" > /etc/nfs-public.misc
-echo "* -fstype=nfs,auto,nofail,noatime,nodiratime,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144 192.168.1.119:/homes/&" > /etc/nfs-home.misc
+echo "Public -fstype=nfs,auto,nofail,noatime,nodiratime,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144,fsc 192.168.1.119:/Public" > /etc/nfs-public.misc
+echo "* -fstype=nfs,auto,nofail,noatime,nodiratime,intr,tcp,actimeo=120,_netdev,bg,rsize=262144,wsize=262144,fsc 192.168.1.119:/homes/&" > /etc/nfs-home.misc
 echo "/media /etc/nfs-public.misc" >> /etc/auto.master
 echo "/home /etc/nfs-home.misc" >> /etc/auto.master
 systemctl start autofs
