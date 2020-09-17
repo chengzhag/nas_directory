@@ -1,4 +1,4 @@
-echo "复制 /etc/skel/ 文件
+echo "复制 /etc/skel/ 文件"
 cp /etc/skel/.bashrc /home/${USER}/.bashrc
 cp /etc/skel/.bash_logout /home/${USER}/.bash_logout
 cp /etc/skel/examples.desktop /home/${USER}/examples.desktop
