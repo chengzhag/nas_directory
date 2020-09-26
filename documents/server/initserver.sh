@@ -43,6 +43,7 @@ echo "/swapfile none swap sw 0 0" >> /etc/fstab
 #设置 nfs 缓存
 #https://blog.frehi.be/2019/01/03/fs-cache-for-nfs-clients/
 apt -y --force-yes install cachefilesd
+mkdir -p /var/cache/fscache
 echo "RUN=yes" >> /etc/default/cachefilesd
 #https://linux.die.net/man/5/cachefilesd.conf
 sed -i "s/10%/30%/g" /etc/cachefilesd.conf
