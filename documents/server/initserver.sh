@@ -1,3 +1,7 @@
+#!/bin/bash
+set -v
+set -e
+
 # 设置源
 mv /etc/apt/sources.list /etc/apt/sources.list_backup
 touch /etc/apt/sources.list
@@ -39,7 +43,6 @@ echo "/swapfile none swap sw 0 0" >> /etc/fstab
 #设置 nfs 缓存
 #https://blog.frehi.be/2019/01/03/fs-cache-for-nfs-clients/
 apt -y --force-yes install cachefilesd
-mkdir /var/cache/fscache
 echo "RUN=yes" >> /etc/default/cachefilesd
 #https://linux.die.net/man/5/cachefilesd.conf
 sed -i "s/10%/30%/g" /etc/cachefilesd.conf
