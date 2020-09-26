@@ -142,6 +142,7 @@ dpkg-reconfigure ldap-auth-config
 
 
 #安装 netdata
+apt -y --force-yes install curl
 curl -s https://packagecloud.io/install/repositories/netdata/netdata/script.deb.sh | sudo bash
 apt -y --force-yes install netdata
 #配置显卡监控
