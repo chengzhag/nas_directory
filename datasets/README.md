@@ -137,3 +137,13 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - suncg_data_processing: 集合了未知来源的 SUNCG 工具代码
     - [SUNCGtoolbox](https://github.com/tinytangent/SUNCGtoolbox): 原 [SUNCGtoolbox](https://github.com/shurans/SUNCGtoolbox) 的克隆， SUNCG 数据集合成工具箱
 - 上传者：章程
+
+## Pix3D
+- 主页：[Pix3D: Dataset and Methods for Single-Image 3D Shape Modeling](http://pix3d.csail.mit.edu/)
+- 关键词：单目 3D 重建，3D shape modeling from a single image
+- 引用：[Pix3D: Dataset and Methods for Single-Image 3D Shape Modeling](http://pix3d.csail.mit.edu/papers/pix3d_cvpr.pdf)
+- 说明：We study 3D shape modeling from a single image and make contributions to it in three aspects. First, we present Pix3D, a large-scale benchmark of diverse image-shape pairs with pixel-level 2D-3D alignment. Pix3D has wide applications in shape-related tasks including reconstruction, retrieval, viewpoint estimation, etc. Building such a large-scale dataset, however, is highly challenging; existing datasets either contain only synthetic data, or lack precise alignment between 2D images and 3D shapes, or only have a small number of images. Second, we calibrate the evaluation criteria for 3D shape reconstruction through behavioral studies, and use them to objectively and systematically benchmark cuttingedge reconstruction algorithms on Pix3D. Third, we design a novel model that simultaneously performs 3D reconstruction and pose estimation; our multi-task learning approach achieves state-of-the-art performance on both tasks.
+- 目录：Pix3D
+    - pix3d: [The Pix3D dataset (zip, 3.6GB)](http://pix3d.csail.mit.edu/data/pix3d.zip)
+    - pix3d_tool: [GitHub (code for evaluation and visualization)](https://github.com/xingyuansun/pix3d)
+- 上传者：章程
