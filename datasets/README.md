@@ -126,3 +126,14 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - depth
     - stereo
 - 上传者：陈才
+
+## SUNCG
+- 主页：[SUNCG: A Large 3D Model Repository for Indoor Scenes](http://suncg.cs.princeton.edu/) ([web archive](https://web.archive.org/web/20181229132648/http://suncg.cs.princeton.edu/))
+- 关键词：场景理解，3D scene understanding，深度，depth map，体素，volumetric，语义分割，semantic segmentation，合成数据集，synthetic
+- 引用：[Semantic Scene Completion from a Single Depth Image](https://arxiv.org/pdf/1611.08974.pdf)
+- 说明：SUNCG is an ongoing effort to establish a richly-annotated, large-scale dataset of 3D scenes. The dataset contains over 45K different scenes with manually created realistic room and furniture layouts. 2019 年，[Planner 5D 以版权问题起诉 Facebook 和普林斯顿大学](https://futurism.com/tech-suing-facebook-princeton-data)，导致 SUNCG 下架。
+- 目录：SUNCG
+    - Data_raw: 原始数据
+    - suncg_data_processing: 集合了未知来源的 SUNCG 工具代码
+    - [SUNCGtoolbox](https://github.com/tinytangent/SUNCGtoolbox): 原 [SUNCGtoolbox](https://github.com/shurans/SUNCGtoolbox) 的克隆， SUNCG 数据集合成工具箱
+- 上传者：章程
