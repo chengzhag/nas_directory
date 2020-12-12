@@ -147,3 +147,20 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - pix3d: [The Pix3D dataset (zip, 3.6GB)](http://pix3d.csail.mit.edu/data/pix3d.zip)
     - pix3d_tool: [GitHub (code for evaluation and visualization)](https://github.com/xingyuansun/pix3d)
 - 上传者：章程
+
+## SUN RGB-D
+- 主页：[SUN RGB-D: A RGB-D Scene Understanding Benchmark Suite](http://rgbd.cs.princeton.edu/)
+- 关键词：3D 场景理解，scene understanding，scene classification，语义分割，semantic segmantation，房间布局，room layout，3D 检测，detection，姿态估计，pose estimation
+- 引用：[SUN RGB-D: A RGB-D Scene Understanding Benchmark Suite](http://rgbd.cs.princeton.edu/paper.pdf)
+- 说明：Although RGB-D sensors have enabled major breakthroughs for several vision tasks, such as 3D reconstruction, we haven not achieved a similar performance jump for high-level scene understanding. Perhaps one of the main reasons for this is the lack of a benchmark of reasonable size with 3D annotations for training and 3D metrics for evaluation. In this paper, we present an RGB-D benchmark suite for the goal of advancing the state-of-the-art in all major scene understanding tasks. Our dataset is captured by four different sensors and contains 10,000 RGB-D images, at a similar scale as PASCAL VOC. The whole dataset is densely annotated and includes 146,617 2D polygons and 58,657 3D bounding boxes with accurate object orientations, as well as a 3D room layout and category for scenes. This dataset enables us to train data-hungry algorithms for scene-understanding tasks, evaluate them using direct and meaningful 3D metrics, avoid overfitting to a small testing set, and study cross-sensor bias.
+- 目录：SUNRGBD
+    - SUNRGBD: [SUNRGBD V1](http://rgbd.cs.princeton.edu/data/SUNRGBD.zip), contains the 10335 RGBD images of SUNRGBD V1.
+        - train_test_labels: Third party 37 class labels of objects in SUN RGB-D images [sunrgbd_train_test_labels.tar.gz](https://github.com/ankurhanda/sunrgbd-meta-data/blob/master/sunrgbd_train_test_labels.tar.gz)
+    - SUNRGBDtoolbox: [SUNRGBDtoolbox](http://rgbd.cs.princeton.edu/data/SUNRGBDtoolbox.zip), contains annotation and Matlab code to load and visualize the data.
+    - README.txt: [README.txt](http://rgbd.cs.princeton.edu/data/README.txt) of SUNRGBDtoolbox.
+    - SUNRGBDMeta2DBB_v2.mat, SUNRGBDMeta3DBB_v2.mat: Updated 2D/3D bounding box.
+    - UPDATE.txt: [UPDATE.txt](http://rgbd.cs.princeton.edu/data/UPDATE.txt) of 2D/3D bounding box.
+    - detection.zip, holisticScene.zip, roomlayout.zip: [detection.zip (15.1 MB)](http://rgbd.cs.princeton.edu/code/detection.zip), [holisticScene.zip (269 KB)](http://rgbd.cs.princeton.edu/code/holisticScene.zip), [roomlayout.zip (274 KB)](http://rgbd.cs.princeton.edu/code/roomlayout.zip) (contains code for "Manhattan Box" and "Convex Hull" methods.), evaluation code.
+
+
+- 上传者：章程
