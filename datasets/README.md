@@ -161,6 +161,16 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - SUNRGBDMeta2DBB_v2.mat, SUNRGBDMeta3DBB_v2.mat: Updated 2D/3D bounding box.
     - UPDATE.txt: [UPDATE.txt](http://rgbd.cs.princeton.edu/data/UPDATE.txt) of 2D/3D bounding box.
     - detection.zip, holisticScene.zip, roomlayout.zip: [detection.zip (15.1 MB)](http://rgbd.cs.princeton.edu/code/detection.zip), [holisticScene.zip (269 KB)](http://rgbd.cs.princeton.edu/code/holisticScene.zip), [roomlayout.zip (274 KB)](http://rgbd.cs.princeton.edu/code/roomlayout.zip) (contains code for "Manhattan Box" and "Convex Hull" methods.), evaluation code.
+- 上传者：章程
 
-
+## 3D-FRONT
+- 主页：[3D-FRONT: 3D Furnished Rooms with layOuts and semaNTics](https://tianchi.aliyun.com/specials/promotion/alibaba-3d-scene-dataset)
+- 关键词：3D 场景理解，scene understanding，scene classification，语义分割，semantic segmantation，房间布局，room layout，3D 检测，detection，姿态估计，pose estimation，合成场景
+- 引用：[3D-FRONT: 3D Furnished Rooms with layOuts and semaNTics](https://arxiv.org/pdf/2011.09127.pdf), [3D-FUTURE: 3D Furniture shape with TextURE](https://arxiv.org/pdf/2009.09633)
+- 说明：A new, large-scale, and comprehensive repository of synthetic indoor scenes highlighted by professionally designed layouts and a large number of rooms populated by high-quality textured 3D models with style compatibility. From layout semantics down to texture details of individual objects, our dataset is freely available to the academic community and beyond. Currently, 3D-FRONT contains 18,797 rooms diversely furnished by 3D objects, far surpassing all publicly available scene datasets. In addition, the 7,302 furniture objects all come with high-quality textures. While the floorplans and layout designs are directly sourced from professional creations, the interior designs in terms of furniture styles, color, and textures have been carefully curated based on a recommender system we develop to attain consistent styles as expert designs. Furthermore, we release Trescope, a light-weight rendering tool, to support benchmark rendering of 2D images and annotations from 3D-FRONT. We demonstrate two applications, interior scene synthesis and texture synthesis, that are especially tailored to the strengths of our new dataset.
+- 目录：3D-FRONT
+    - 3d-front terms of use.pdf: 使用条款
+    - Requesting for download links of 3D-FRONT data.pdf: 申请回复
+    - 3D-FRONT: house layouts
+    - 3D-FUTURE-model: furniture shapes
 - 上传者：章程
