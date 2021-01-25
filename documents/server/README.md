@@ -16,5 +16,3 @@
 ## 管理员
 
 * [显卡服务器管理员说明](README_admin.md)
-
-## Thinlinc
