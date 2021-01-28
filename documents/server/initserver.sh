@@ -28,15 +28,15 @@ apt upgrade
 apt -y --force-yes install openssh-server exfat-utils ethtool net-tools gcc make screen git iperf3
 
 
-#删除已有的 swap 文件，设置新的 swap 文件，启动时挂载已设置
-#https://www.cnblogs.com/EasonJim/p/7487596.html
-swapoff /swapfile
-rm /swapfile
-fallocate -l 32G /swapfile
-chmod 600 /swapfile
-mkswap /swapfile
-swapon /swapfile
-echo "/swapfile none swap sw 0 0" >> /etc/fstab
+# #删除已有的 swap 文件，设置新的 swap 文件，启动时挂载已设置
+# #https://www.cnblogs.com/EasonJim/p/7487596.html
+# swapoff /swapfile
+# rm /swapfile
+# fallocate -l 32G /swapfile
+# chmod 600 /swapfile
+# mkswap /swapfile
+# swapon /swapfile
+# echo "/swapfile none swap sw 0 0" >> /etc/fstab
 
 
 #配置 NAS 挂载
@@ -142,16 +142,16 @@ dpkg-reconfigure ldap-auth-config
 # cd ~
 
 
-#安装 netdata
-apt -y --force-yes install curl
-curl -s https://packagecloud.io/install/repositories/netdata/netdata/script.deb.sh | sudo bash
-apt -y --force-yes install netdata
-#配置显卡监控
-touch /etc/netdata/python.d.conf
-echo "nvidia_smi: yes" >> /etc/netdata/python.d.conf
-echo "" >> /etc/netdata/netdata.conf
-echo "[plugins]" >> /etc/netdata/netdata.conf
-echo "    python.d = yes" >> /etc/netdata/netdata.conf
-service netdata restart
-systemctl enable netdata
-#claim：登录到 https://app.netdata.cloud/spaces/kc110lsc/rooms/gpu 查看 claim 命令
+# #安装 netdata
+# apt -y --force-yes install curl
+# curl -s https://packagecloud.io/install/repositories/netdata/netdata/script.deb.sh | sudo bash
+# apt -y --force-yes install netdata
+# #配置显卡监控
+# touch /etc/netdata/python.d.conf
+# echo "nvidia_smi: yes" >> /etc/netdata/python.d.conf
+# echo "" >> /etc/netdata/netdata.conf
+# echo "[plugins]" >> /etc/netdata/netdata.conf
+# echo "    python.d = yes" >> /etc/netdata/netdata.conf
+# service netdata restart
+# systemctl enable netdata
+# #claim：登录到 https://app.netdata.cloud/spaces/kc110lsc/rooms/gpu 查看 claim 命令
