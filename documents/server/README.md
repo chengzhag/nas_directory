@@ -19,8 +19,11 @@
 
 ## Remote Desktop
 
-1. 可以下载 [ThinLinc 客户端 ](https://www.cendio.com/thinlinc/what-is-thinlinc)连接远程桌面，用起来和 Team Viewer 差不多，但是不同用户有独立桌面
+1. 可以下载 [ThinLinc 客户端 ](https://www.cendio.com/thinlinc/what-is-thinlinc)连接服务器远程桌面，用起来和 Team Viewer 差不多，但是不同用户有独立桌面
 2. 使用姿势：
-   - 客户端输入服务器IP，账号，密码就能登录，桌面环境选择**xfce**（ubuntu桌面可能因为配置问题会闪退）
-   - 退出操作：1）直接叉掉窗口，会在后台继续运行；2）右上角可以log out，退出登录，停止运行
-3. Note：免费版一台服务器限制登录5个账号，登录不上换一个试试
+   - 客户端输入服务器IP，账号，密码就能登录，桌面环境选择**xfce**（ubuntu桌面可能因为配置问题会闪退，----2021.1.28 目前使用正常）
+   - 退出操作：1）直接叉掉窗口，会在后台继续运行；2）右上角选择**log out**（莫选 shut down，orz，没试过能不能真的关掉），退出登录，停止运行；
+3. **Note**：
+   1. 一台服务器限制登录5个账号（毕竟软件白嫖），如果登录不上换一个试试
+   2. **双屏爱好者注意！！**：登录前  options -> screen 调整一下分辨率，或者选择 current monitor，否则默认 all monitor 你屏就蓝了
+   3. 待续。。。
