@@ -97,3 +97,16 @@ NAS:/Public/datasets 文件夹用于存储公共数据集（网上发布的公�
     - ShapeNetCore.v2（未解压）: [Archive of ShapeNetCore v2 release](http://shapenet.cs.stanford.edu/shapenet/obj-zip/ShapeNetCore.v2.zip) (ShapeNetCore.v2.zip ~30.3GB), [README.txt](https://www.shapenet.org/resources/releases/shapenetcorev2/README.txt)
     - all.csv: [Training, validation and test splits for SHREC16 amd SHREC17 in CSV format](http://shapenet.cs.stanford.edu/shapenet/obj-zip/SHREC16/all.csv)
 - 上传者：章程
+
+## RealSR
+- 主页：[Toward Real-World Single Image Super-Resolution (RealSR)](https://github.com/csjcai/RealSR)
+- 关键词：图像超分辨，real-world super-resolution，Real RGB and RAW dataset
+- 引用：[Toward Real-World Single Image Super-Resolution (RealSR)](https://csjcai.github.io/papers/RealSR.pdf)
+
+- 说明：
+    -Captured device: (Canon 5D3 and Nikon D810) + (24∼105mm, f/4.0 zoom lens)；
+    -559 scenes (459 scenes for training & 100 scenes for testing)
+    -To build a dataset for learning and evaluating real-world SISR models, we propose to collect images of the same scene by adjusting the lens of DSLR cameras. Sophisticated image registration operations are then performed to generate the HR and LR pairs of the same content. 
+- 目录：RealSR_RAW
+- 上传者：杨裕强
+
