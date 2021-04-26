@@ -32,7 +32,7 @@ NAS 私有文件夹 NAS:/homes/{user_name}，称为各用户的 home 文件夹�
 * NAS:/homes 挂载到 GPU:/home 路径下，各用户可以将 anaconda 等软件安装于 home，使其在各显卡服务器间共享
 * 各用户的存储空间有配额，可通过贡献或使用共享数据集避免个人配额的占用
 
-NAS 共享文件夹 NAS:/Public，对 members 只读，存储说明文件和公共数据集：
+NAS 共享文件夹 NAS:/Public，对 members 只读，存储说明文件和公共数据集，挂载到 GPU:/media/Public 路径下：
 * datasets: 公共数据集，通常是网上发布的，成熟的数据集，维护一个列表方便共享
     * {dataset_name}: 
         * 以完整原始目录结构（作者发布时的目录结构）保存在 {dataset_name} 文件夹下，每个数据集一个文件夹，目录结构不应有空格
